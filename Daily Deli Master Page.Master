@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Daily Deli Master Page.master.cs" Inherits="Daily_Deli_E_Commerce.Daily_Deli_Master_Page" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1626dc2da5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/StyleSheet.css" />
+  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+          <title></title>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <!--Header -->
+        <header>
+        <!--MAN-->
+            <div class="logo">
+                <h1>
+                    <a href="Home.aspx">Daily Deli</a>
+                </h1>
+            </div>
+
+            <nav class="nav">
+                                <ul>
+                                        <li><a href="Home.aspx" class="nav-link">Home</a></li>
+                                        <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx")) { %>
+                                                <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                                                <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                                                <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+                                                <li>
+                                                     <!-- Cart Button -->
+                                            <button id="cart-btn" class="cart-btn" type="button">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                <span id="cart-count" class="cart-count">0</span>
+                                            </button>
+                                            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" type="button">
+                                                <i class="fas fa-bars" id="menu-icon"></i>
+                                            </button>
+                                                </li>
+                                        <% } else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx")) { %>
+                                                <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                                                <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
+                                                 <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                                                <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+                                               
+                                            
+                                         <% } else { %>
+                                                <li><a href="About_Us.aspx" class="nav-link">About Us</a></li>
+                                                <li><a href="login.aspx" class="nav-link nav-btn nav-btn-outline">Login</a></li>
+                                                <li><a href="register.aspx" class="nav-link nav-btn nav-btn-outline">Register</a></li>
+                                        <% } %>
+                                </ul>
+            </nav>
+        </header>
+
+        <!-- 📦 Content Placeholder (Keep this!) -->
+        <div id="main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+
+        <!-- 🔽 Footer -->
+         <footer>
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h2>Daily Deli</h2>
+                    <p>Your local marketplace, simplified.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Home.aspx">Home</a></li>
+                        <li><a href="login.aspx">Login</a></li>
+                        <li><a href="register.aspx">Register</a></li>
+                        <li><a href="About_Us.aspx">About Us</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <div>
+                        <input type="email" name="email" placeholder="Your email address" />
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <a id="facebook" href="https://www.facebook.com" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a id="instagram" href="https://www.instagram.com" target="_blank">
+                        <i class=" fa-brands fa-instagram"></i>
+                    </a>
+                    <a id="twitter" href="https://www.twitter.com" target="_blank">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a id="tiktok" href="https://www.tiktok.com" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2025 Daily Deli. All rights reserved.
+            </div>
+        </footer>
+    </form>
+</body>
+</html>

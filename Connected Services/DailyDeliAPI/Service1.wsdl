@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service" />
+      <xsd:import schemaLocation="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_DailyDeli_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUsertype_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsertype" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUsertype_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsertypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_CheckUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_CheckUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_FilterProductsByDiet_InputMessage">
+    <wsdl:part name="parameters" element="tns:FilterProductsByDiet" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_FilterProductsByDiet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FilterProductsByDietResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetRecipesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecipesForUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetRecipesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecipesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_SaveUserCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserCart" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_SaveUserCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUserCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCart" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUserCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateUserAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserAddress" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateUserAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_SaveTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_SaveTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getTotalNumProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalNumProducts" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getTotalNumProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalNumProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getOutofStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOutofStock" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getOutofStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOutofStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getActiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getActiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getActiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getActiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getInActiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInActiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getInActiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInActiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService_DailyDeli">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/Register" message="tns:IService_DailyDeli_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/RegisterResponse" message="tns:IService_DailyDeli_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/Login" message="tns:IService_DailyDeli_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/LoginResponse" message="tns:IService_DailyDeli_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsertype">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUsertype" message="tns:IService_DailyDeli_GetUsertype_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUsertypeResponse" message="tns:IService_DailyDeli_GetUsertype_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/CheckUser" message="tns:IService_DailyDeli_CheckUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/CheckUserResponse" message="tns:IService_DailyDeli_CheckUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/ResetPassword" message="tns:IService_DailyDeli_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/ResetPasswordResponse" message="tns:IService_DailyDeli_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterProductsByDiet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/FilterProductsByDiet" message="tns:IService_DailyDeli_FilterProductsByDiet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/FilterProductsByDietResponse" message="tns:IService_DailyDeli_FilterProductsByDiet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetProduct" message="tns:IService_DailyDeli_GetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetProductResponse" message="tns:IService_DailyDeli_GetProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetRecipesForUser" message="tns:IService_DailyDeli_GetRecipesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetRecipesForUserResponse" message="tns:IService_DailyDeli_GetRecipesForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveUserCart" message="tns:IService_DailyDeli_SaveUserCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveUserCartResponse" message="tns:IService_DailyDeli_SaveUserCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserCart" message="tns:IService_DailyDeli_GetUserCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserCartResponse" message="tns:IService_DailyDeli_GetUserCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserDetails" message="tns:IService_DailyDeli_GetUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserDetailsResponse" message="tns:IService_DailyDeli_GetUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateUserAddress" message="tns:IService_DailyDeli_UpdateUserAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateUserAddressResponse" message="tns:IService_DailyDeli_UpdateUserAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveTransaction" message="tns:IService_DailyDeli_SaveTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveTransactionResponse" message="tns:IService_DailyDeli_SaveTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/AddProduct" message="tns:IService_DailyDeli_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/AddProductResponse" message="tns:IService_DailyDeli_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getUser" message="tns:IService_DailyDeli_getUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getUserResponse" message="tns:IService_DailyDeli_getUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateUserInfo" message="tns:IService_DailyDeli_UpdateUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateUserInfoResponse" message="tns:IService_DailyDeli_UpdateUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/DeleteUser" message="tns:IService_DailyDeli_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/DeleteUserResponse" message="tns:IService_DailyDeli_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotalNumProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getTotalNumProducts" message="tns:IService_DailyDeli_getTotalNumProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getTotalNumProductsResponse" message="tns:IService_DailyDeli_getTotalNumProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOutofStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getOutofStock" message="tns:IService_DailyDeli_getOutofStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getOutofStockResponse" message="tns:IService_DailyDeli_getOutofStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getActiveUsers" message="tns:IService_DailyDeli_getActiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getActiveUsersResponse" message="tns:IService_DailyDeli_getActiveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInActiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getInActiveUsers" message="tns:IService_DailyDeli_getInActiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getInActiveUsersResponse" message="tns:IService_DailyDeli_getInActiveUsers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService_DailyDeli" type="tns:IService_DailyDeli">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsertype">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetUsertype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterProductsByDiet">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/FilterProductsByDiet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecipesForUser">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetRecipesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserCart">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/SaveUserCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCart">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetUserCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserAddress">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/UpdateUserAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/SaveTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalNumProducts">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getTotalNumProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOutofStock">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getOutofStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveUsers">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getActiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInActiveUsers">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getInActiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService_DailyDeli" binding="tns:BasicHttpBinding_IService_DailyDeli">
+      <soap:address location="http://localhost:55063/Service_DailyDeli.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

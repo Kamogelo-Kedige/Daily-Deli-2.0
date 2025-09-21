@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fe3cba6f-7023-40de-b89d-0bc1c2508476" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55063/Service_DailyDeli.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service_DailyDeli.xsd" MetadataType="Schema" ID="5f869dce-6b48-4ac1-9cca-385dae9f56f5" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="a2e8c1c3-5723-47fa-aff0-2eccb620e273" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?wsdl" />
+    <MetadataFile FileName="Service_DailyDeli2.xsd" MetadataType="Schema" ID="9dfaf033-6cca-4b56-aca7-c4ff3c16a653" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service_DailyDeli3.xsd" MetadataType="Schema" ID="c3489069-2cf9-453b-9220-5f190f947120" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service_DailyDeli.disco" MetadataType="Disco" ID="feee516a-149d-4916-8b67-9b655cd7b480" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?disco" />
+    <MetadataFile FileName="Service_DailyDeli1.xsd" MetadataType="Schema" ID="0e6a3e2b-c3bd-4246-8f8a-1d7c408e211b" SourceId="1" SourceUrl="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
