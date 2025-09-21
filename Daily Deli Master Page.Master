@@ -45,6 +45,7 @@
                                                 <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
                                                 <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
                                                  <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                                                 <li id="navAdmin" runat="server" Visible="false"><a href="Admin.aspx" class="nav-link">Admin</a></li>
                                                 <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
                                                
                                             
@@ -74,10 +75,20 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="Home.aspx">Home</a></li>
-                        <li><a href="login.aspx">Login</a></li>
-                        <li><a href="register.aspx">Register</a></li>
-                        <li><a href="About_Us.aspx">About Us</a></li>
-
+                        <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx")) { %>
+                            <li><a href="Logout.aspx">Logout</a></li>
+                            <li><a href="Blog_Post.aspx">Blog</a></li>
+                            <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i> Profile</a></li>
+                        <% } else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx")) { %>
+                            <li><a href="Logout.aspx">Logout</a></li>
+                            <li><a href="Shop.aspx">Shop</a></li>
+                            <li><a href="Blog_Post.aspx">Blog</a></li>
+                            <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i> Profile</a></li>
+                        <% } else { %>
+                            <li><a href="About_Us.aspx">About Us</a></li>
+                            <li><a href="login.aspx">Login</a></li>
+                            <li><a href="register.aspx">Register</a></li>
+                        <% } %>
                     </ul>
                 </div>
 

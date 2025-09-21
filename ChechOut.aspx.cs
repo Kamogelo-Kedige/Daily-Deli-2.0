@@ -340,6 +340,10 @@ namespace Daily_Deli_E_Commerce
                 client.SaveUserCart(UserId, "[]");
                 System.Diagnostics.Debug.WriteLine("Cart cleared");
             }
+            else
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
 
         protected void btnContinue_Click(object sender, EventArgs e)

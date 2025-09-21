@@ -21,48 +21,28 @@ namespace Daily_Deli_E_Commerce
         {
             try
             {
-                //Try t login the user
                 int Login = client.Login(email.Value, Secrecy.HashPassword(password.Value));
 
-
-
-                string UserType = Session["UserTYpe"] as string;
-
-          
-
-
-
-
-
-                if (Login != -1)
-                {
-                    string Type = client.GetUsertype(Login);
-
-                    //Store the logged in session, will later enable nav manipulation
-                    Session["UserId"] = Login;
-                    Session["UserTYpe"] = UserType;
-
-                    
-
-
-
-                    if (Type.Equals("Admin"))
+                    if (Login != -1)
                     {
-                        Response.Redirect("Admin.aspx"); ; // link for admin
+                        // Get the user type from the service
+                        string userType = client.GetUsertype(Login);
+
+                        // Store the logged in session, will later enable nav manipulation
+                        Session["UserId"] = Login;
+                        Session["UserType"] = userType;
+
+                      
+                     
+                       Response.Redirect("Shop.aspx");
+                       
                     }
-                    else if (Type.Equals("Customer"))
+                    else
                     {
-                        Response.Redirect("Shop.aspx");
-                   
+                        statusLabel.Style["color"] = "red";
+                        statusLabel.InnerText = "Password or Email invalid";
                     }
 
-
-                }
-                else
-                {
-                    statusLabel.Style["color"] = "red";
-                    statusLabel.InnerText = "Password or Email invalid";
-                }
                 client.Close();
             }
             catch (Exception ex)
@@ -70,8 +50,10 @@ namespace Daily_Deli_E_Commerce
                 client.Close();
                 statusLabel.Style["color"] = "red";
                 statusLabel.InnerText = "Something went wrong, try again later";
-                Console.WriteLine(ex.Message);
-            }
+                 
+          }
+
         }
     }
 }
+    
