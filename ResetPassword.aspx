@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Daily Deli Master Page.Master" AutoEventWireup="true"
     CodeBehind="ResetPassword.aspx.cs" Inherits="Daily_Deli_E_Commerce.ResetPassword" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -13,29 +14,29 @@
                     <h2>Reset Your Password</h2>
                 </div>
                 <div id="submitForm">
-                    <input type="text" id="txtName" name="name" placeholder="name" required runat="server" />
-                    <input type="text" id="txtSurname" name="email" placeholder="surname" required runat="server" />
-                    <input type="email" id="txtEmail" name="email" placeholder="email" required runat="server" />
-                    <div class="register-row">
-                        <div class="register-group">
-                            <select id="dietType" name="dietType" runat="server" class="register-select">
-                                <option value="" disabled selected hidden style="color:#888;">chosen
-                                    diet type</option>
-                                <option value=" 1">None</option>
-                                <option value="2">Halal</option>
-                                <option value="3">Vegetarian</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="hiddenFields" runat="server" visible="false">
+                    <asp:Panel ID="pnlEmail" runat="server" Visible="true">
+                        <input type="email" id="txtEmail" name="email" placeholder="email" required runat="server" />
+                        <asp:Button CssClass="button" ID="btnRequestOTP" runat="server" Text="Request OTP"
+                            OnClick="btnRequestOTP_Click" />
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlOTP" runat="server" Visible="false">
+                        <input type="text" id="txtOTP" name="otp" placeholder="Enter OTP" required runat="server" maxlength="6" />
+                        <asp:Button CssClass="button" ID="btnVerifyOTP" runat="server" Text="Verify OTP"
+                            OnClick="btnVerifyOTP_Click" />
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlPassword" runat="server" Visible="false">
                         <input type="password" id="txtPassword" name="password" placeholder="new password" required
                             runat="server" />
                         <input type="password" id="txtPasswordConfirm" name="password"
                             placeholder="confirm new password" required runat="server" />
-                    </div>
+                        <asp:Button CssClass="button" ID="btnResetPassword" runat="server" Text="Reset Password"
+                            OnClick="btnResetPassword_Click" />
+                    </asp:Panel>
+
                     <p id="statusLabel" runat="server"></p>
-                    <asp:Button CssClass="button" ID="btnResetPassword" runat="server" Text="Reset Password"
-                        OnClick="btnResetPassword_Click" />
+
                     <p>
                         Have no account? <a href="Register.aspx">register</a>
                     </p>

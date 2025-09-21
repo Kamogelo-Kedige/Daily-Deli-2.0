@@ -1442,6 +1442,142 @@
           grid-template-columns: repeat(5, 1fr);
         }
       }
+
+      /* Welcome user panel styling */
+      .welcome-user {
+        max-width: 1100px;
+        margin: 1.25rem auto;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 250, 250, 0.98));
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 24px rgba(7, 12, 20, 0.06);
+        display: flex;
+        flex-direction: column;
+        /* stack username and meta rows */
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 1px solid var(--border);
+        opacity: 0;
+        transform: translateY(6px);
+        animation: fadeInUp 360ms ease-out forwards;
+      }
+
+      .welcome-user h3 {
+        margin: 0;
+        color: var(--muted-foreground);
+        font-size: 1.125rem;
+        line-height: 1.2;
+      }
+
+      .welcome-user p {
+        margin: 0;
+        color: var(--muted-foreground);
+        font-size: 0.95rem;
+      }
+
+      /* Layout inside panel */
+      .welcome-user .user-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .welcome-user .top-row {
+        width: 100%;
+      }
+
+      .meta-row-container {
+        display: flex;
+        width: 100%;
+        max-width: 900px;
+        gap: 1rem;
+        justify-content: space-between;
+        /* even spacing */
+        align-items: center;
+        padding-top: 0.5rem;
+      }
+
+      .meta-item {
+        flex: 1 1 0;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+      }
+
+      .meta-item>div {
+        /* label + value wrapper */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .welcome-avatar {
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-right: 0.5rem;
+      }
+
+      .meta-row {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .meta-row i {
+        color: var(--muted-foreground);
+        width: 18px;
+        text-align: center;
+      }
+
+      /* Badge-style labels */
+      #lblDietType,
+      #lblUserType {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      #lblDietType {
+        background: var(--muted);
+        color: var(--foreground);
+      }
+
+      #lblUserType {
+        background: var(--primary);
+        color: var(--primary-foreground);
+      }
+
+      /* Responsive: stack on small screens */
+      @media (max-width: 768px) {
+        .welcome-user {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .welcome-avatar {
+          margin-right: 0;
+        }
+      }
+
+      /* fade-in up animation */
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
 
 
@@ -1475,6 +1611,8 @@
     </script>
 
     <main>
+
+
       <!-- Cart Button 
       <button id="cart-btn" class="cart-btn" type="button">
         <i class="fas fa-shopping-cart"></i>
@@ -1544,6 +1682,43 @@
           </div>
         </div>
       </section>
+
+      <!-- Welcome User Info Section -->
+      <asp:Panel ID="pnlUserInfo" runat="server" CssClass="welcome-user" Visible="false">
+
+        <div class="user-meta">
+          <h3>
+            <span data-i18n="welcome">Welcome</span>
+
+          </h3>
+
+          <div class="meta-row-container" style="display: flex; justify-content: space-around;">
+            <p class="meta-row">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span class="meta-label" data-i18n="email"></span>:
+              <asp:Label ID="lblUserName" runat="server" CssClass="user-name" />
+            </p>
+            <p class="meta-row">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span class="meta-label" data-i18n="email"></span>:
+              <asp:Label ID="lblUserEmail" runat="server" CssClass="meta-value" />
+            </p>
+
+            <p class="meta-row">
+              <i class="fas fa-utensils" aria-hidden="true"></i>
+              <span class="meta-label" data-i18n="diet"></span>:
+              <asp:Label ID="lblDietType" runat="server" CssClass="meta-badge" />
+            </p>
+
+            <p class="meta-row">
+              <i class="fas fa-user-shield" aria-hidden="true"></i>
+              <span class="meta-label" data-i18n="usertype"></span>:
+              <asp:Label ID="lblUserType" runat="server" CssClass="meta-badge role-badge" />
+            </p>
+          </div>
+
+        </div>
+      </asp:Panel>
 
       <!-- Featured Products -->
       <section id="featured" class="featured-section">

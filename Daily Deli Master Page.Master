@@ -4,20 +4,20 @@
 
 <html>
 <head runat="server">
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1626dc2da5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/StyleSheet.css" />
-  
+
     <asp:ContentPlaceHolder ID="head" runat="server">
-          <title></title>
+        <title></title>
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-         <!--Header -->
+        <!--Header -->
         <header>
-        <!--MAN-->
+            <!--MAN-->
             <div class="logo">
                 <h1>
                     <a href="Home.aspx">Daily Deli</a>
@@ -25,36 +25,57 @@
             </div>
 
             <nav class="nav">
-                                <ul>
-                                        <li><a href="Home.aspx" class="nav-link">Home</a></li>
-                                        <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx")) { %>
-                                                <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
-                                                <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
-                                                <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
-                                                <li>
-                                                     <!-- Cart Button -->
-                                            <button id="cart-btn" class="cart-btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                                <span id="cart-count" class="cart-count">0</span>
-                                            </button>
-                                            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" type="button">
-                                                <i class="fas fa-bars" id="menu-icon"></i>
-                                            </button>
-                                                </li>
-                                        <% } else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx")) { %>
-                                                <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
-                                                <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
-                                                 <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
-                                                 <li id="navAdmin" runat="server" Visible="false"><a href="Admin.aspx" class="nav-link">Admin</a></li>
-                                                <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
-                                               
-                                            
-                                         <% } else { %>
-                                                <li><a href="About_Us.aspx" class="nav-link">About Us</a></li>
-                                                <li><a href="login.aspx" class="nav-link nav-btn nav-btn-outline">Login</a></li>
-                                                <li><a href="register.aspx" class="nav-link nav-btn nav-btn-outline">Register</a></li>
-                                        <% } %>
-                                </ul>
+                <ul>
+                    <li><a href="Home.aspx" class="nav-link">Home</a></li>
+                    <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx"))
+                        { %>
+                    <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                    <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                    <!-- Admin link (shown only to admins) -->
+                    <li>
+                        <asp:HyperLink ID="shopAdminLink" runat="server" Visible="false" CssClass="nav-link" NavigateUrl="Admin.aspx">
+                             Admin</asp:HyperLink></li>
+
+                    <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i>Profile</a></li>
+                    <li>
+                        <!-- Cart Button -->
+                        <button id="cart-btn" class="cart-btn" type="button">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </button>
+                        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" type="button">
+                            <i class="fas fa-bars" id="menu-icon"></i>
+                        </button>
+                    </li>
+                    <% }
+                        else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx"))
+                        { %>
+                    <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                    <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
+                    <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+
+
+
+
+                    <% }
+                     else if ( Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") ||  Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx"))
+                     { %>
+                        <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                        <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
+                        <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="Admin.aspx">
+                             Admin</asp:HyperLink></li>
+
+
+                    <% }
+                        else
+                        { %>
+                    <li><a href="About_Us.aspx" class="nav-link">About Us</a></li>
+                    <li><a href="login.aspx" class="nav-link nav-btn nav-btn-outline">Login</a></li>
+                    <li><a href="register.aspx" class="nav-link nav-btn nav-btn-outline">Register</a></li>
+                    <% } %>
+                </ul>
             </nav>
         </header>
 
@@ -64,7 +85,7 @@
         </div>
 
         <!-- 🔽 Footer -->
-         <footer>
+        <footer>
             <div class="footer-container">
                 <div class="footer-brand">
                     <h2>Daily Deli</h2>
@@ -75,19 +96,24 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="Home.aspx">Home</a></li>
-                        <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx")) { %>
-                            <li><a href="Logout.aspx">Logout</a></li>
-                            <li><a href="Blog_Post.aspx">Blog</a></li>
-                            <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i> Profile</a></li>
-                        <% } else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx")) { %>
-                            <li><a href="Logout.aspx">Logout</a></li>
-                            <li><a href="Shop.aspx">Shop</a></li>
-                            <li><a href="Blog_Post.aspx">Blog</a></li>
-                            <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i> Profile</a></li>
-                        <% } else { %>
-                            <li><a href="About_Us.aspx">About Us</a></li>
-                            <li><a href="login.aspx">Login</a></li>
-                            <li><a href="register.aspx">Register</a></li>
+                        <% if (Page.AppRelativeVirtualPath.ToLower().Contains("shop.aspx"))
+                            { %>
+                        <li><a href="Logout.aspx">Logout</a></li>
+                        <li><a href="Blog_Post.aspx">Blog</a></li>
+                        <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i>Profile</a></li>
+                        <% }
+                            else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx"))
+                            { %>
+                        <li><a href="Logout.aspx">Logout</a></li>
+                        <li><a href="Shop.aspx">Shop</a></li>
+                        <li><a href="Blog_Post.aspx">Blog</a></li>
+                        <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i>Profile</a></li>
+                        <% }
+                            else
+                            { %>
+                        <li><a href="About_Us.aspx">About Us</a></li>
+                        <li><a href="login.aspx">Login</a></li>
+                        <li><a href="register.aspx">Register</a></li>
                         <% } %>
                     </ul>
                 </div>

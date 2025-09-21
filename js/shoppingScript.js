@@ -1,29 +1,3 @@
-// Recipe Data
-/*
-const quickRecipes = [
-  {
-    id: "r1",
-    name: "Fresh Garden Salad",
-    ingredients: ["Lettuce", "Tomatoes", "Broccoli"],
-    cookTime: "10 mins",
-    difficulty: "Easy",
-  },
-  {
-    id: "r2",
-    name: "Fruit Smoothie Bowl",
-    ingredients: ["Strawberries", "Bananas", "Greek Yogurt"],
-    cookTime: "5 mins",
-    difficulty: "Easy",
-  },
-  {
-    id: "r3",
-    name: "Cheese & Herb Toast",
-    ingredients: ["Whole Wheat Bread", "Cheddar Cheese"],
-    cookTime: "8 mins",
-    difficulty: "Easy",
-  },
-];
-*/
 // Global State
 let cart = [];
 
@@ -481,7 +455,6 @@ function addRecipeToCart(recipeId) {
       }
     });
     //
-    alert(`${recipe.Name} ingredients added to cart!`);
   } else {
     alert("No ingredients found for this recipe.");
   }

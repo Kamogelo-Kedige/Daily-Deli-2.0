@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Daily_Deli_E_Commerce.DailyDeliAPI;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Daily_Deli_E_Commerce
 {
@@ -16,87 +20,182 @@ namespace Daily_Deli_E_Commerce
 
         }
 
+        protected void btnRequestOTP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string email = txtEmail.Value.Trim();
+                if (string.IsNullOrEmpty(email))
+                {
+                    statusLabel.Style["color"] = "red";
+                    statusLabel.InnerHtml = "Please enter your email.";
+                    return;
+                }
+
+                // Generate OTP
+                string otp = GenerateOTP();
+
+                // Store OTP and email in Session
+                Session["ResetOTP"] = otp;
+                Session["ResetEmail"] = email;
+
+                // Send OTP email
+                bool emailSent = SendOTPEmail(email, otp);
+                if (!emailSent)
+                {
+                    statusLabel.Style["color"] = "red";
+                    statusLabel.InnerHtml = "Failed to send OTP. Please try again.";
+                    return;
+                }
+
+                // Hide email panel, show OTP panel
+                pnlEmail.Visible = false;
+                pnlOTP.Visible = true;
+
+                statusLabel.Style["color"] = "green";
+                statusLabel.InnerHtml = "OTP sent to your email. Please enter it below.";
+            }
+            catch (Exception ex)
+            {
+                statusLabel.Style["color"] = "red";
+                statusLabel.InnerHtml = "Something went wrong. Please try again later.";
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        protected void btnVerifyOTP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string enteredOTP = txtOTP.Value.Trim();
+                string storedOTP = Session["ResetOTP"] as string;
+
+                if (string.IsNullOrEmpty(enteredOTP))
+                {
+                    statusLabel.Style["color"] = "red";
+                    statusLabel.InnerHtml = "Please enter the OTP.";
+                    return;
+                }
+
+                if (enteredOTP != storedOTP)
+                {
+                    statusLabel.Style["color"] = "red";
+                    statusLabel.InnerHtml = "Invalid OTP. Please try again.";
+                    return;
+                }
+
+                // OTP verified, hide OTP panel, show password panel
+                pnlOTP.Visible = false;
+                pnlPassword.Visible = true;
+
+                statusLabel.Style["color"] = "green";
+                statusLabel.InnerHtml = "OTP verified! Enter your new password.";
+            }
+            catch (Exception ex)
+            {
+                statusLabel.Style["color"] = "red";
+                statusLabel.InnerHtml = "Something went wrong. Please try again later.";
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
         protected void btnResetPassword_Click(object sender, EventArgs e)
         {
             try
             {
+                string newPassword = txtPassword.Value.Trim();
+                string confirmPassword = txtPasswordConfirm.Value.Trim();
+                string email = Session["ResetEmail"] as string;
 
-                //  verify user 
-                // If not verified yet (no ViewState flag), do verification and show password fields
-                if (ViewState["VerifiedUser"] == null)
-                {
-                    bool exists = client.CheckUser(txtName.Value, txtSurname.Value, txtEmail.Value, int.Parse(dietType.Value));
-                    if (!exists)
-                    {
-                        statusLabel.Style["color"] = "red";
-                        statusLabel.InnerHtml = "No such user found";
-                        return;
-                    }
-
-                    // Mark user as verified and show the hidden password fields
-                    ViewState["VerifiedUser"] = txtEmail.Value; 
-                    hiddenFields.Visible = true;
-                    statusLabel.Style["color"] = "green";
-                    statusLabel.InnerHtml = "User found! Enter new password and confirm.";
-                    return; //stop here so user can fill passwords on the next postback
-                }
-
-
-                //  passwords submitted, do reset 
-                // Make sure the password fields contain values
-                if (string.IsNullOrWhiteSpace(txtPassword.Value) || string.IsNullOrWhiteSpace(txtPasswordConfirm.Value))
+                if (string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
                 {
                     statusLabel.Style["color"] = "red";
                     statusLabel.InnerHtml = "Please enter and confirm the new password.";
                     return;
                 }
 
-                // Compare the values (NOT the control references)
-                if (txtPassword.Value != txtPasswordConfirm.Value)
+                if (newPassword != confirmPassword)
                 {
                     statusLabel.Style["color"] = "red";
                     statusLabel.InnerHtml = "Passwords must match.";
                     return;
                 }
 
-                // Build DTO & call service to save the new password
+                // Build UserDTO (only email and hashed password needed)
                 UserDTO user = new UserDTO
                 {
-                    Name = txtName.Value,
-                    Surname = txtSurname.Value,
-                    Email = txtEmail.Value,
-                    Password = Secrecy.HashPassword(txtPassword.Value)
-                   
+                    Email = email,
+                    Password = Secrecy.HashPassword(newPassword)
                 };
 
-                // reset the password
-             
-                  bool isReset = client.ResetPassword(user);
-                if (isReset == true)
+                // Reset password via service
+                bool isReset = client.ResetPasswordByEmail(user.Email, user.Password);
+                if (isReset)
                 {
-                    // Clear sensitive fields and ViewState, then redirect
+                    // Clear session and fields
+                    Session.Remove("ResetOTP");
+                    Session.Remove("ResetEmail");
                     txtPassword.Value = txtPasswordConfirm.Value = string.Empty;
-                    ViewState.Remove("VerifiedUser");
 
-
-                    Response.Redirect("Login.aspx");
+                    statusLabel.Style["color"] = "green";
+                    statusLabel.InnerHtml = "Password reset successfully! Redirecting to login...";
+                    Response.AddHeader("REFRESH", "3;URL=Login.aspx"); // Redirect after 3 seconds
                 }
                 else
                 {
                     statusLabel.Style["color"] = "red";
-                    statusLabel.InnerHtml = "Something went wrong while changing password";
-
-                    return;
+                    statusLabel.InnerHtml = "Failed to reset password. Please try again.";
                 }
-
-                
-
             }
             catch (Exception ex)
             {
                 statusLabel.Style["color"] = "red";
-                statusLabel.InnerHtml = "Something went wrong try again later";
-                Console.WriteLine(ex.Message);
+                statusLabel.InnerHtml = "Something went wrong. Please try again later.";
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private string GenerateOTP()
+        {
+            // Generate a 6-digit OTP
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                byte[] randomBytes = new byte[3]; // For 6 digits
+                rng.GetBytes(randomBytes);
+                int otpValue = (randomBytes[0] << 16) | (randomBytes[1] << 8) | randomBytes[2];
+                return (otpValue % 1000000).ToString("D6"); // Ensure 6 digits
+            }
+        }
+
+        private bool SendOTPEmail(string email, string otp)
+        {
+            try
+            {
+                // SMTP configuration (replace with your actual SMTP settings)
+                string fromEmail = "delidaily186@gmail.com"; // Sender email
+                string smtpServer = "smtp.gmail.com"; // e.g., smtp.gmail.com
+                int smtpPort = 587; // e.g., 587 for TLS
+                string smtpUsername = "delidaily186@gmail.com"; // SMTP username
+                string smtpPassword = "rkgp dugf euck lpzd"; // SMTP password or app password
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(fromEmail);
+                mail.To.Add(email);
+                mail.Subject = "Daily Deli OTP for Password Reset";
+                mail.Body = $"Your OTP for password reset is: {otp}. It is valid for 10 minutes.";
+                mail.IsBodyHtml = false;
+
+                SmtpClient smtp = new SmtpClient(smtpServer, smtpPort);
+                smtp.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                smtp.EnableSsl = true; // Use SSL/TLS
+                smtp.Send(mail);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Email sending failed: {ex.Message}");
+                return false;
             }
         }
     }

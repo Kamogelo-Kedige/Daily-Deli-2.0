@@ -2552,6 +2552,12 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/SaveTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/SaveTransactionResponse")]
         System.Threading.Tasks.Task<bool> SaveTransactionAsync(int userId, decimal totalAmount, string itemsJson, string status, string paymentMethod, decimal shippingFee, decimal taxAmount, string invoiceNumber);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmail", ReplyAction="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmailResponse")]
+        bool ResetPasswordByEmail(string email, string newPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmail", ReplyAction="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmailResponse")]
+        System.Threading.Tasks.Task<bool> ResetPasswordByEmailAsync(string email, string newPassword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddProduct", ReplyAction="http://tempuri.org/IService_DailyDeli/AddProductResponse")]
         bool AddProduct(string name, string Description, decimal price, int stockQuantity, string Image, bool active, bool isCommon, int Category);
         
@@ -2730,6 +2736,14 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         
         public System.Threading.Tasks.Task<bool> SaveTransactionAsync(int userId, decimal totalAmount, string itemsJson, string status, string paymentMethod, decimal shippingFee, decimal taxAmount, string invoiceNumber) {
             return base.Channel.SaveTransactionAsync(userId, totalAmount, itemsJson, status, paymentMethod, shippingFee, taxAmount, invoiceNumber);
+        }
+        
+        public bool ResetPasswordByEmail(string email, string newPassword) {
+            return base.Channel.ResetPasswordByEmail(email, newPassword);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ResetPasswordByEmailAsync(string email, string newPassword) {
+            return base.Channel.ResetPasswordByEmailAsync(email, newPassword);
         }
         
         public bool AddProduct(string name, string Description, decimal price, int stockQuantity, string Image, bool active, bool isCommon, int Category) {

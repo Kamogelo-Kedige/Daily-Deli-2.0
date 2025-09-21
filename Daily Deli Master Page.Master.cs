@@ -9,25 +9,26 @@ namespace Daily_Deli_E_Commerce
 {
     public partial class Daily_Deli_Master_Page : System.Web.UI.MasterPage
     {
+     
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Default: hide admin nav
+            // Ensure admin link visibility for Admin users on this page (fallback if master logic fails)
             try
             {
                 if (Session["UserType"] != null)
                 {
-                    var userType = Session["UserType"].ToString();
-                    if (!string.IsNullOrEmpty(userType) && userType.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                    var ut = Session["UserType"].ToString();
+                    if (!string.IsNullOrEmpty(ut) && ut.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        navAdmin.Visible = true;
-                        
-                      
+
+                        shopAdminLink.Visible = true;
+                    
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Don't throw from master page load for session issues
+                System.Diagnostics.Debug.WriteLine($"Shop admin visibility check failed: {ex.Message}");
             }
         }
     }

@@ -10,6 +10,218 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <style>
+        :root {
+  --header-bg: #f5f5f5;
+  --link-color: #333;
+  --link-hover: #0077cc;
+  --brand-bg: #f5f5f5;
+  --brand-color: #333;
+  --accent-color: #0077cc;
+  --body-background: #fafafa;
+  --form-bg: #ffffff;
+  --input-border: #ccc;
+  --input-focus: var(--accent-color);
+  --transition: 0.3s ease;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --footer-bg: #222;
+  --footer-text: #ddd;
+  --footer-link: #fff;
+  --footer-link-hover: #0077cc;
+  --button-hover: rgb(5, 151, 255);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Inter", sans-serif !important;
+  background: #fafafa;
+  color: var(--brand-color);
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  height: 10%;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--header-bg);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+.logo a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.logo a:hover,
+.logo a:focus {
+  color: var(--link-hover);
+  transition: color var(--transition);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: color var(--transition), background var(--transition);
+  font-weight: 700 !important;
+  position: relative;
+  background: none !important;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--accent-color);
+  background: rgba(0, 119, 204, 0.1);
+  border-radius: 0.25rem;
+  text-decoration: underline;
+}
+
+/* Modern nav button styles for header */
+.nav-btn {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff !important;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 119, 204, 0.08);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  margin-left: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: var(--button-hover);
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  border-radius: 2rem;
+}
+
+.nav-btn:hover::before,
+.nav-btn:focus::before {
+  width: 100%;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+  color: #fff !important;
+  background: var(--button-hover);
+}
+
+.nav-btn-outline {
+  background: transparent !important;
+  color: var(--accent-color) !important;
+  border: 2px solid var(--accent-color) !important;
+  box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nav-btn-outline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: var(--button-hover);
+  z-index: -1;
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  border-radius: 2rem;
+}
+
+.nav-btn-outline:hover::before,
+.nav-btn-outline:focus::before {
+  width: 100%;
+}
+
+.nav-btn-outline:hover,
+.nav-btn-outline:focus {
+  color: #fff !important;
+  border: none !important;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nav-btn-outline:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 700px) {
+  .nav-btn {
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 1.5rem;
+  }
+}
         /* Hover effect for all feature cards */
         .card:hover {
             transform: translateY(-5px);

@@ -16,6 +16,7 @@ namespace Daily_Deli_E_Commerce
         protected void Page_Load(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Page_Load started");
+            
             if (Session["UserId"] != null)
             {
                 int UserId;
@@ -31,6 +32,35 @@ namespace Daily_Deli_E_Commerce
                     return;
                 }
 
+                // Fetch user info for welcome panel
+                if (Session["Email"] != null)
+                {
+                    string email = Session["Email"].ToString();
+                    var user = client.getUser(email);
+                    if (user != null)
+                    {
+                        pnlUserInfo.Visible = true;
+                        lblUserName.Text = user.Name + " " + user.Surname;
+                        lblUserEmail.Text = user.Email;
+                        lblUserType.Text = user.UserType;
+                        // Map diet type
+                        string dietLabel = "Unknown";
+                        switch (user.DietType)
+                        {
+                            case 1:
+                                dietLabel = "Standard";
+                                break;
+                            case 2:
+                                dietLabel = "Halal";
+                                break;
+                            case 3:
+                                dietLabel = "Vegetarian";
+                                break;
+                            
+                        }
+                        lblDietType.Text = dietLabel;
+                    }
+                }
                 // Fetch products with debug
                 var products = client.FilterProductsByDiet(UserId);
                 System.Diagnostics.Debug.WriteLine($"Products fetched: {products?.Count() ?? 0} items");

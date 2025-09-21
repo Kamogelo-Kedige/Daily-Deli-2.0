@@ -53,10 +53,12 @@
         font-weight: 600;
         font-size: .95rem;
         transition: transform .04s ease, box-shadow .2s ease, background .2s ease;
+        background: #0077cc;
+        color: #fff;
     }
 
     .btn-edit {
-        background: #FF8A00;
+        background: #0077cc;
         color: #fff;
         box-shadow: 0 6px 14px rgba(91,141,239,.25);
     }
@@ -77,7 +79,7 @@
             }
 
         .site-btn {
-            background: #ff4b4b;
+            background:#0077cc;
             border: none;
             color: #fff;
             border-radius: 12px;
@@ -86,7 +88,7 @@
         }
 
             .site-btn.secondary {
-                background: #888;
+                background:#0077cc;
             }
 
         .grid-2 {

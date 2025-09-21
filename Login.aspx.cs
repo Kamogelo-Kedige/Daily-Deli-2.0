@@ -31,6 +31,7 @@ namespace Daily_Deli_E_Commerce
                         // Store the logged in session, will later enable nav manipulation
                         Session["UserId"] = Login;
                         Session["UserType"] = userType;
+                        Session["Email"] = email.Value;
 
                       
                      

@@ -86,6 +86,12 @@
   <wsdl:message name="IService_DailyDeli_SaveTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ResetPasswordByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ResetPasswordByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordByEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_DailyDeli_AddProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProduct" />
   </wsdl:message>
@@ -186,6 +192,10 @@
     <wsdl:operation name="SaveTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveTransaction" message="tns:IService_DailyDeli_SaveTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/SaveTransactionResponse" message="tns:IService_DailyDeli_SaveTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmail" message="tns:IService_DailyDeli_ResetPasswordByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmailResponse" message="tns:IService_DailyDeli_ResetPasswordByEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/AddProduct" message="tns:IService_DailyDeli_AddProduct_InputMessage" />
@@ -332,6 +342,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveTransaction">
       <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/SaveTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordByEmail">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/ResetPasswordByEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

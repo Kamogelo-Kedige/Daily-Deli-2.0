@@ -15,22 +15,13 @@ namespace Daily_Deli_E_Commerce
     {
 
         /// <summary>
-        /// txtName control.
+        /// pnlEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtName;
-
-        /// <summary>
-        /// txtSurname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSurname;
+        protected global::System.Web.UI.WebControls.Panel pnlEmail;
 
         /// <summary>
         /// txtEmail control.
@@ -42,22 +33,49 @@ namespace Daily_Deli_E_Commerce
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmail;
 
         /// <summary>
-        /// dietType control.
+        /// btnRequestOTP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect dietType;
+        protected global::System.Web.UI.WebControls.Button btnRequestOTP;
 
         /// <summary>
-        /// hiddenFields control.
+        /// pnlOTP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hiddenFields;
+        protected global::System.Web.UI.WebControls.Panel pnlOTP;
+
+        /// <summary>
+        /// txtOTP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtOTP;
+
+        /// <summary>
+        /// btnVerifyOTP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerifyOTP;
+
+        /// <summary>
+        /// pnlPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPassword;
 
         /// <summary>
         /// txtPassword control.
@@ -78,15 +96,6 @@ namespace Daily_Deli_E_Commerce
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPasswordConfirm;
 
         /// <summary>
-        /// statusLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusLabel;
-
-        /// <summary>
         /// btnResetPassword control.
         /// </summary>
         /// <remarks>
@@ -94,5 +103,14 @@ namespace Daily_Deli_E_Commerce
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnResetPassword;
+
+        /// <summary>
+        /// statusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusLabel;
     }
 }
