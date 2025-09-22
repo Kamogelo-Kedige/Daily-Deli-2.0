@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <title>Checkout - Daily Deli</title>
 
         <style>
             /* Add spacing to form labels and inputs */
@@ -854,7 +855,10 @@
 
                 <br />
                 <asp:Button ID="btnContinue" runat="server" Text="Continue to Payment"
-                    OnClientClick="showPaymentPanel(); return false;" OnClick="btnContinue_Click" />
+                    OnClientClick="showPaymentPanel(); return false;" OnClick="btnContinue_Click"
+                    CssClass="custom-continue-btn"
+                    Style="padding:0.5rem 1rem; border:none; border-radius:0.25rem; background:linear-gradient(135deg, var(--primary, #0077cc) 0%, var(--accent, #0077cc) 100%); color:#fff; cursor:pointer; transition:background 0.3s ease;" />
+
             </div>
 
             <!-- RIGHT CART -->

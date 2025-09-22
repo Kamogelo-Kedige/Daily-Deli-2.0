@@ -2,7 +2,6 @@
     CodeBehind="About_Us.aspx.cs" Inherits="Daily_Deli_E_Commerce.AboutUs" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <title>About Us - Daily Deli</title>
-        <title>About Us - Daily Deli</title>
         <style>
             body {
                 margin: 0;
@@ -389,9 +388,9 @@
                             <p><i class="fas fa-envelope"></i> info@dailydeli.com</p>
                             <p><i class="fas fa-clock"></i> Monday-Friday: 9am-6pm</p>
                             <p><i class="fas fa-clock"></i> Saturday: 10am-4pm</p>
-                     
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

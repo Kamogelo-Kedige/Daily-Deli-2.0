@@ -2,6 +2,7 @@
     CodeBehind="Add_Products.aspx.cs" Inherits="Daily_Deli_E_Commerce.Add_Products" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>Add Product - Daily Deli</title>
         <style>
             .admin-wrap {
                 background: #e0e0e0;

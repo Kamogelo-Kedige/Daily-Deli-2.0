@@ -6,7 +6,7 @@
         <link href="<%= ResolveUrl(" ~/css/StyleSheet.css") %>?v=1" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="css/StyleSheet.css" />
-        <title>Blog Post</title>
+        <title>Blog Post - Daily Deli</title>
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

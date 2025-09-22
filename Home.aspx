@@ -2,7 +2,7 @@
     CodeBehind="Home.aspx.cs" Inherits="Daily_Deli_E_Commerce.Home" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-        <title>Home - DailyDeli </title>
+        <title>Home - Daily Deli</title>
 
         <script src="https://kit.fontawesome.com/1626dc2da5.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/StyleSheet.css" />

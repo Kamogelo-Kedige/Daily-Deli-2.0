@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Daily Deli Master Page.Master" AutoEventWireup="true"
     CodeBehind="ResetPassword.aspx.cs" Inherits="Daily_Deli_E_Commerce.ResetPassword" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>Reset Password - Daily Deli</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,7 +22,8 @@
                     </asp:Panel>
 
                     <asp:Panel ID="pnlOTP" runat="server" Visible="false">
-                        <input type="text" id="txtOTP" name="otp" placeholder="Enter OTP" required runat="server" maxlength="6" />
+                        <input type="text" id="txtOTP" name="otp" placeholder="Enter OTP" required runat="server"
+                            maxlength="6" />
                         <asp:Button CssClass="button" ID="btnVerifyOTP" runat="server" Text="Verify OTP"
                             OnClick="btnVerifyOTP_Click" />
                     </asp:Panel>

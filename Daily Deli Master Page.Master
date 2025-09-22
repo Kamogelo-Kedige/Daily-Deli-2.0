@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1626dc2da5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/StyleSheet.css" />
+     <!-- Favicon created by justicon - Flaticon: https://www.flaticon.com/free-icons/groceries -->
+    <link rel="icon" href="img/shopping-bag.png" type="image/x-icon">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
         <title></title>

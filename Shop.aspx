@@ -2,7 +2,9 @@
   CodeBehind="Shop.aspx.cs" Inherits="Daily_Deli_E_Commerce.Shop" %>
   <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <title>DailyDeli - Shopping </title>
+    <title>Shop - Daily Deli</title>
+
+
 
     <style>
       /* Cart Button Underline on Hover */
