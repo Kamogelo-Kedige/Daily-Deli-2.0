@@ -1766,7 +1766,7 @@
           <div class="section-header">
             <h2 class="section-title">
               <i class="fas fa-calendar-alt"></i>
-              Weekly Meal Plans
+              Meal Plans
             </h2>
             <p class="section-subtitle">
               Take the guesswork out of meal planning with our curated weekly plans designed for every lifestyle
@@ -1777,9 +1777,7 @@
             <!-- Meal plans will be inserted here by JavaScript -->
           </div>
 
-          <div class="section-footer">
-            <button class="btn btn-outline" type="button">View All Meal Plans</button>
-          </div>
+
         </div>
       </section>
     </main>

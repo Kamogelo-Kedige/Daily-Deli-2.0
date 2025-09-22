@@ -591,9 +591,7 @@ function renderMealPlans() {
                         <i class="fas fa-clock"></i>
                         7 Days
                     </div>
-                    <button class="btn btn-primary">
-                        Get Shopping List
-                    </button>
+                    
                 </div>
             </div>
         </div>
