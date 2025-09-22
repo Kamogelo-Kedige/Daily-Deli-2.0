@@ -63,6 +63,7 @@ namespace Daily_Deli_E_Commerce
                 }
                 // Fetch products with debug
                 var products = client.FilterProductsByDiet(UserId);
+                
                 System.Diagnostics.Debug.WriteLine($"Products fetched: {products?.Count() ?? 0} items");
 
                 // Inject products with debug

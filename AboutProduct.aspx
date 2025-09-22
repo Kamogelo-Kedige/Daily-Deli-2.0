@@ -32,8 +32,6 @@
 
                         </div>
                         <div class="d-flex flex-column gap-3 mt-3">
-                            <asp:Button ID="AddToCartBtn" runat="server" ClientIDMode="Static"
-                                CssClass="btn btn-primary w-100" Text="Add to Cart" UseSubmitBehavior="false" />
                             <asp:Button ID="BackBtn" runat="server" ClientIDMode="Static"
                                 CssClass="btn btn-outline-primary w-100" Text="← Back" UseSubmitBehavior="false"
                                 OnClientClick="window.location.href='Shop.aspx'; return false;" />

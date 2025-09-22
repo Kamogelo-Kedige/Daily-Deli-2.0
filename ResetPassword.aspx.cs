@@ -17,7 +17,6 @@ namespace Daily_Deli_E_Commerce
         Service_DailyDeliClient client = new Service_DailyDeliClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnRequestOTP_Click(object sender, EventArgs e)
@@ -171,25 +170,161 @@ namespace Daily_Deli_E_Commerce
         {
             try
             {
-                // SMTP configuration (replace with your actual SMTP settings)
-                string fromEmail = "delidaily186@gmail.com"; // Sender email
-                string smtpServer = "smtp.gmail.com"; // e.g., smtp.gmail.com
-                int smtpPort = 587; // e.g., 587 for TLS
-                string smtpUsername = "delidaily186@gmail.com"; // SMTP username
-                string smtpPassword = "rkgp dugf euck lpzd"; // SMTP password or app password
+                // SMTP configuration
+                string fromEmail = "delidaily186@gmail.com";
+                string smtpServer = "smtp.gmail.com";
+                int smtpPort = 587;
+                string smtpUsername = "delidaily186@gmail.com";
+                string smtpPassword = "rkgp dugf euck lpzd";
+
+                // HTML email body
+                string emailBody = $@"
+                <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <style>
+                        body {{
+                            margin: 0;
+                            padding: 0;
+                            font-family: 'Poppins', Arial, sans-serif;
+                            background-color: #f8faff;
+                            color: #2d3748;
+                        }}
+                        .container {{
+                            max-width: 600px;
+                            margin: 20px auto;
+                            background: #ffffff;
+                            border-radius: 15px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            overflow: hidden;
+                            border: 1px solid #e0e5f3;
+                        }}
+                        .header {{
+                            background: linear-gradient(135deg, #0077cc 0%, #4a6cf7 100%);
+                            padding: 30px;
+                            text-align: center;
+                            color: #ffffff;
+                        }}
+                        .header img {{
+                            width: 150px;
+                            height: auto;
+                            margin-bottom: 10px;
+                        }}
+                        .header h1 {{
+                            margin: 0;
+                            font-size: 28px;
+                            font-weight: 600;
+                        }}
+                        .header p {{
+                            margin: 5px 0;
+                            font-size: 16px;
+                            opacity: 0.9;
+                        }}
+                        .content {{
+                            padding: 30px;
+                            text-align: center;
+                        }}
+                        .otp-box {{
+                            display: inline-block;
+                            background: #f8faff;
+                            padding: 15px 30px;
+                            border-radius: 10px;
+                            border: 2px solid #0077cc;
+                            margin: 20px 0;
+                            font-size: 24px;
+                            font-weight: 600;
+                            letter-spacing: 5px;
+                            color: #0077cc;
+                        }}
+                        .content p {{
+                            font-size: 16px;
+                            line-height: 1.5;
+                            margin: 10px 0;
+                            color: #2d3748;
+                        }}
+                        .content a {{
+                            color: #0077cc;
+                            text-decoration: none;
+                            font-weight: 500;
+                        }}
+                        .content a:hover {{
+                            text-decoration: underline;
+                        }}
+                        .footer {{
+                            background: #f8faff;
+                            padding: 20px;
+                            text-align: center;
+                            border-top: 1px solid #e0e5f3;
+                            font-size: 14px;
+                            color: #718096;
+                        }}
+                        .footer a {{
+                            color: #0077cc;
+                            text-decoration: none;
+                        }}
+                        .footer a:hover {{
+                            text-decoration: underline;
+                        }}
+                        @media (max-width: 600px) {{
+                            .container {{
+                                margin: 10px;
+                                border-radius: 10px;
+                            }}
+                            .header {{
+                                padding: 20px;
+                            }}
+                            .header h1 {{
+                                font-size: 24px;
+                            }}
+                            .content {{
+                                padding: 20px;
+                            }}
+                            .otp-box {{
+                                font-size: 20px;
+                                padding: 10px 20px;
+                            }}
+                        }}
+                    </style>
+                </head>
+                <body>
+                    <div class='container'>
+                        <div class='header'>
+                            <img src='https://tse4.mm.bing.net/th/id/OIP.PZnyvI-K89cg0MGEXycttgHaEv?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Daily Deli Logo'>
+                            <h1>Daily Deli</h1>
+                            <p>Freshness Delivered to Your Doorstep</p>
+                        </div>
+                        <div class='content'>
+                            <h2>Password Reset OTP</h2>
+                            <p>Dear Customer,</p>
+                            <p>You have requested to reset your password. Please use the following One-Time Password (OTP) to proceed:</p>
+                            <div class='otp-box'>{otp}</div>
+                            <p>This OTP is valid for 10 minutes. If you did not request a password reset, please ignore this email or contact our support team at <a href='mailto:info@dailydeli.com'>info@dailydeli.com</a>.</p>
+                            <p>Thank you for choosing Daily Deli!</p>
+                        </div>
+                        <div class='footer'>
+                            <p>123 Tasteful Lane, Johannesburg, South Africa</p>
+                            <p>Phone: +27 11 555 0123 | Email: <a href='mailto:info@dailydeli.com'>info@dailydeli.com</a> | <a href='http://www.dailydeli.com'>www.dailydeli.com</a></p>
+                            <p>&copy; 2025 Daily Deli. All rights reserved.</p>
+                        </div>
+                    </div>
+                </body>
+                </html>";
 
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(fromEmail);
+                mail.From = new MailAddress(fromEmail, "Daily Deli");
                 mail.To.Add(email);
                 mail.Subject = "Daily Deli OTP for Password Reset";
-                mail.Body = $"Your OTP for password reset is: {otp}. It is valid for 10 minutes.";
-                mail.IsBodyHtml = false;
+                mail.Body = emailBody;
+                mail.IsBodyHtml = true; // Enable HTML content
 
                 SmtpClient smtp = new SmtpClient(smtpServer, smtpPort);
                 smtp.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                smtp.EnableSsl = true; // Use SSL/TLS
+                smtp.EnableSsl = true;
                 smtp.Send(mail);
 
+                System.Diagnostics.Debug.WriteLine($"OTP email sent to {email}");
                 return true;
             }
             catch (Exception ex)
