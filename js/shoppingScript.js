@@ -1,6 +1,65 @@
 // Global State
 let cart = [];
 
+// Meal Plan Data
+const mealPlans = [
+  {
+    id: "mp1",
+    name: "Healthy Week",
+    description:
+      "A balanced meal plan focused on fresh ingredients and nutrition",
+    days: [
+      {
+        day: "Monday",
+        meals: {
+          breakfast: "Fruit Smoothie Bowl",
+          lunch: "Fresh Garden Salad",
+          dinner: "Grilled vegetables with cheese",
+        },
+      },
+      {
+        day: "Tuesday",
+        meals: {
+          breakfast: "Cheese & Herb Toast",
+          lunch: "Greek yogurt with nuts",
+          dinner: "Fresh salad with bread",
+        },
+      },
+      {
+        day: "Wednesday",
+        meals: {
+          breakfast: "Fresh fruit mix",
+          lunch: "Vegetable wrap",
+          dinner: "Cheese platter with bread",
+        },
+      },
+    ],
+  },
+  {
+    id: "mp2",
+    name: "Quick & Easy",
+    description: "Simple meals for busy lifestyles",
+    days: [
+      {
+        day: "Monday",
+        meals: {
+          breakfast: "Granola bars with milk",
+          lunch: "Cheese toast",
+          dinner: "Quick salad",
+        },
+      },
+      {
+        day: "Tuesday",
+        meals: {
+          breakfast: "Yogurt with nuts",
+          lunch: "Fresh fruit",
+          dinner: "Vegetable stir-fry",
+        },
+      },
+    ],
+  },
+];
+
 // Persistent Cart: AJAX sync to save cart to database
 function syncCartToServer() {
   fetch("SyncCart.aspx", {
