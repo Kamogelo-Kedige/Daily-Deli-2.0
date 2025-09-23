@@ -150,6 +150,9 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Connected Services\DailyDeliAPI\Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DailyDeliAPI\Service_DailyDeli.disco" />
     <None Include="Connected Services\DailyDeliAPI\configuration91.svcinfo" />
     <None Include="Connected Services\DailyDeliAPI\configuration.svcinfo" />

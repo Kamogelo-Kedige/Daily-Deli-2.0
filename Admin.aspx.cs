@@ -17,11 +17,11 @@ namespace Daily_Deli_E_Commerce
             // Bind with your real numbers from DB/service
             lblActiveUsers.Text = client.getActiveUsers().ToString();
             lblInactiveUsers.Text = client.getInActiveUsers().ToString();
-            lblTransactions.Text = "--";
-            lblRevenue.Text = "--";
+            lblTransactions.Text = client.getTotalNumTransaction().ToString();
+            lblRevenue.Text = client.getTotalTransactionReveune().ToString();
             lblProducts.Text = client.getTotalNumProducts().ToString();
             lblOOS.Text = client.getOutofStock().ToString();
-            
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Daily_Deli_E_Commerce
             Response.Redirect("Add_Products.aspx");
         }
 
-       
+
 
         protected void btnUser_Profile(object sender, EventArgs e)
         {

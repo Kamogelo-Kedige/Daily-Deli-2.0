@@ -3,6 +3,7 @@
   <xs:import schemaLocation="http://localhost:55063/Service_DailyDeli.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="User">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Recipes" nillable="true" type="tns:ArrayOfRecipe" />
@@ -24,6 +25,89 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
+      <xs:element minOccurs="0" name="Category_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Comment1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Likes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="Product_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Reply" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductDietCompatibilities" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
+      <xs:element minOccurs="0" name="ProductNutrition" nillable="true" type="tns:ProductNutrition" />
+      <xs:element minOccurs="0" name="RecipeIngredients" nillable="true" type="tns:ArrayOfRecipeIngredient" />
+      <xs:element minOccurs="0" name="categoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="createdAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="imageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isCommon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="stockQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="unit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfProductDietCompatibility">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDietCompatibility" nillable="true" type="tns:ProductDietCompatibility" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDietCompatibility" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
+  <xs:complexType name="ProductDietCompatibility">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DietType" nillable="true" type="tns:DietType" />
+      <xs:element minOccurs="0" name="DietTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDietCompatibility" nillable="true" type="tns:ProductDietCompatibility" />
+  <xs:complexType name="DietType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductDietCompatibilities" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
+      <xs:element minOccurs="0" name="Recipes" nillable="true" type="tns:ArrayOfRecipe" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DietType" nillable="true" type="tns:DietType" />
   <xs:complexType name="ArrayOfRecipe">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Recipe" nillable="true" type="tns:Recipe" />
@@ -49,76 +133,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Recipe" nillable="true" type="tns:Recipe" />
-  <xs:complexType name="DietType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="ProductDietCompatibilities" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
-      <xs:element minOccurs="0" name="Recipes" nillable="true" type="tns:ArrayOfRecipe" />
-      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DietType" nillable="true" type="tns:DietType" />
-  <xs:complexType name="ArrayOfProductDietCompatibility">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDietCompatibility" nillable="true" type="tns:ProductDietCompatibility" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductDietCompatibility" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
-  <xs:complexType name="ProductDietCompatibility">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DietType" nillable="true" type="tns:DietType" />
-      <xs:element minOccurs="0" name="DietTypeId" type="xs:int" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
-      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductDietCompatibility" nillable="true" type="tns:ProductDietCompatibility" />
-  <xs:complexType name="Product">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="ProductDietCompatibilities" nillable="true" type="tns:ArrayOfProductDietCompatibility" />
-      <xs:element minOccurs="0" name="ProductNutrition" nillable="true" type="tns:ProductNutrition" />
-      <xs:element minOccurs="0" name="RecipeIngredients" nillable="true" type="tns:ArrayOfRecipeIngredient" />
-      <xs:element minOccurs="0" name="categoryId" type="xs:int" />
-      <xs:element minOccurs="0" name="createdAt" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="imageURL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
-      <xs:element minOccurs="0" name="isCommon" type="xs:boolean" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="price" type="xs:decimal" />
-      <xs:element minOccurs="0" name="stockQuantity" type="xs:int" />
-      <xs:element minOccurs="0" name="unit" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Product" nillable="true" type="tns:Product" />
-  <xs:complexType name="Category">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Category" nillable="true" type="tns:Category" />
-  <xs:complexType name="ArrayOfProduct">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
-  <xs:complexType name="ProductNutrition">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
-      <xs:element minOccurs="0" name="calories" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="carbs" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="fat" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="protein" nillable="true" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductNutrition" nillable="true" type="tns:ProductNutrition" />
   <xs:complexType name="ArrayOfRecipeIngredient">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipeIngredient" nillable="true" type="tns:RecipeIngredient" />
@@ -136,6 +150,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RecipeIngredient" nillable="true" type="tns:RecipeIngredient" />
+  <xs:complexType name="ProductNutrition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="calories" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="carbs" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fat" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="protein" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductNutrition" nillable="true" type="tns:ProductNutrition" />
   <xs:complexType name="ArrayOfTransaction">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
@@ -244,4 +269,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RecipeDTO" nillable="true" type="tns:RecipeDTO" />
+  <xs:complexType name="ArrayOfTransactionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransactionDTO" nillable="true" type="tns:ArrayOfTransactionDTO" />
+  <xs:complexType name="TransactionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemsJson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentMethod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShippingFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TransactionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
 </xs:schema>

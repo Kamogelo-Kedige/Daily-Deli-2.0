@@ -174,6 +174,21 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ResetPasswordByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResetPasswordByEmailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveTransaction">
     <xs:complexType>
       <xs:sequence>
@@ -195,18 +210,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ResetPasswordByEmail">
+  <xs:element name="GetUserByEmail">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ResetPasswordByEmailResponse">
+  <xs:element name="GetUserByEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ResetPasswordByEmailResult" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetUserByEmailResult" nillable="true" type="q7:UserDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -241,14 +255,14 @@
   <xs:element name="getUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getUserResult" nillable="true" type="q7:UserDTO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getUserResult" nillable="true" type="q8:UserDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateUserInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="user" nillable="true" type="q8:UserDTO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="user" nillable="true" type="q9:UserDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -318,6 +332,72 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="getInActiveUsersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q10:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateProductResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q11:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteProductResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTotalNumTransaction">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTotalNumTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getTotalNumTransactionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTotalTransactionReveune">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTotalTransactionReveuneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getTotalTransactionReveuneResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionsByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionsByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetTransactionsByUserIdResult" nillable="true" type="q12:ArrayOfTransactionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
