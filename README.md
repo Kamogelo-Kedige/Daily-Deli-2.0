@@ -1,4 +1,8 @@
 # Daily-Deli: Informatics E-Commerce Project
+## 🤝 Collaborators
+- [Frank Bahle](https://github.com/FrankBahle)
+- [Wonder Ngwenya](https://github.com/Wonder2910)
+- [Tembe Albert](https://github.com/Tembe-Albert)
 
 ## 📌 Overview
 Daily Deli is a **B2C online grocery and deli platform** offering:
