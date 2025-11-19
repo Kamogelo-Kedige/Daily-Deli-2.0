@@ -69,7 +69,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="AboutProduct.aspx" />
+    <Content Include="AboutProductCommentPage.aspx" />
     <Content Include="About_Us.aspx" />
     <Content Include="Add_Products.aspx" />
     <Content Include="Admin.aspx" />
@@ -153,6 +155,12 @@
     <Content Include="Connected Services\DailyDeliAPI\Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DailyDeliAPI\Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DailyDeliAPI\Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DailyDeliAPI\Service_DailyDeli.disco" />
     <None Include="Connected Services\DailyDeliAPI\configuration91.svcinfo" />
     <None Include="Connected Services\DailyDeliAPI\configuration.svcinfo" />
@@ -162,6 +170,7 @@
     </None>
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\StyleSheet.css" />
+    <Content Include="EditUserProfile.aspx" />
     <Content Include="Edit_Products.aspx" />
     <Content Include="Edit_User_Profile.aspx" />
     <Content Include="Home.aspx" />
@@ -176,6 +185,7 @@
     <Content Include="js\shoppingScript.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Loyalty_Discount.aspx" />
     <Content Include="obj\Debug\Daily_Deli_E-Commerce.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Daily_Deli_E-Commerce.dll" />
     <Content Include="obj\Debug\Daily_Deli_E-Commerce.pdb" />
@@ -244,6 +254,7 @@
     <Content Include="ResetPassword.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="SyncCart.aspx" />
+    <Content Include="Transactions.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +264,13 @@
     </Compile>
     <Compile Include="AboutProduct.aspx.designer.cs">
       <DependentUpon>AboutProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AboutProductCommentPage.aspx.cs">
+      <DependentUpon>AboutProductCommentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutProductCommentPage.aspx.designer.cs">
+      <DependentUpon>AboutProductCommentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="About_Us.aspx.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>
@@ -309,6 +327,13 @@
     <Compile Include="Daily Deli Master Page.Master.designer.cs">
       <DependentUpon>Daily Deli Master Page.Master</DependentUpon>
     </Compile>
+    <Compile Include="EditUserProfile.aspx.cs">
+      <DependentUpon>EditUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserProfile.aspx.designer.cs">
+      <DependentUpon>EditUserProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Edit_Products.aspx.cs">
       <DependentUpon>Edit_Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,6 +369,13 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Loyalty_Discount.aspx.cs">
+      <DependentUpon>Loyalty_Discount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loyalty_Discount.aspx.designer.cs">
+      <DependentUpon>Loyalty_Discount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -375,6 +407,13 @@
     <Compile Include="SyncCart.aspx.designer.cs">
       <DependentUpon>SyncCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Transactions.aspx.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transactions.aspx.designer.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="img\Frank_Blog_Img1.webp" />
@@ -398,6 +437,7 @@
     <Content Include="obj\Debug\Daily_Deli_E-Commerce.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="LICENSE" />
     <None Include="packages.config" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
@@ -433,6 +473,7 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -32,6 +32,9 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         private string PhoneNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Daily_Deli_E_Commerce.DailyDeliAPI.PromoCode[] PromoCodesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Daily_Deli_E_Commerce.DailyDeliAPI.Recipe[] RecipesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -124,6 +127,19 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
                 if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
                     this.PhoneNumberField = value;
                     this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Daily_Deli_E_Commerce.DailyDeliAPI.PromoCode[] PromoCodes {
+            get {
+                return this.PromoCodesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PromoCodesField, value) != true)) {
+                    this.PromoCodesField = value;
+                    this.RaisePropertyChanged("PromoCodes");
                 }
             }
         }
@@ -356,12 +372,6 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Daily_Deli_E_Commerce.DailyDeliAPI.Category CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Category_IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Comment1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -371,7 +381,7 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> LikesField;
+        private System.Nullable<int> NumLikesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Daily_Deli_E_Commerce.DailyDeliAPI.Product ProductField;
@@ -395,32 +405,6 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Daily_Deli_E_Commerce.DailyDeliAPI.Category Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Category_Id {
-            get {
-                return this.Category_IdField;
-            }
-            set {
-                if ((this.Category_IdField.Equals(value) != true)) {
-                    this.Category_IdField = value;
-                    this.RaisePropertyChanged("Category_Id");
-                }
             }
         }
         
@@ -464,14 +448,14 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Likes {
+        public System.Nullable<int> NumLikes {
             get {
-                return this.LikesField;
+                return this.NumLikesField;
             }
             set {
-                if ((this.LikesField.Equals(value) != true)) {
-                    this.LikesField = value;
-                    this.RaisePropertyChanged("Likes");
+                if ((this.NumLikesField.Equals(value) != true)) {
+                    this.NumLikesField = value;
+                    this.RaisePropertyChanged("NumLikes");
                 }
             }
         }
@@ -537,6 +521,147 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
                 if ((this.User_IdField.Equals(value) != true)) {
                     this.User_IdField = value;
                     this.RaisePropertyChanged("User_Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PromoCode", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
+    [System.SerializableAttribute()]
+    public partial class PromoCode : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Daily_Deli_E_Commerce.DailyDeliAPI.User UserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int user_idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Daily_Deli_E_Commerce.DailyDeliAPI.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int user_id {
+            get {
+                return this.user_idField;
+            }
+            set {
+                if ((this.user_idField.Equals(value) != true)) {
+                    this.user_idField = value;
+                    this.RaisePropertyChanged("user_id");
                 }
             }
         }
@@ -1104,99 +1229,6 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Daily_Deli_E_Commerce.DailyDeliAPI.Comment[] CommentsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Daily_Deli_E_Commerce.DailyDeliAPI.Product[] ProductsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Daily_Deli_E_Commerce.DailyDeliAPI.Comment[] Comments {
-            get {
-                return this.CommentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
-                    this.CommentsField = value;
-                    this.RaisePropertyChanged("Comments");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Daily_Deli_E_Commerce.DailyDeliAPI.Product[] Products {
-            get {
-                return this.ProductsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
-                    this.ProductsField = value;
-                    this.RaisePropertyChanged("Products");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
     [System.SerializableAttribute()]
     public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1466,6 +1498,83 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
                 if ((object.ReferenceEquals(this.unitField, value) != true)) {
                     this.unitField = value;
                     this.RaisePropertyChanged("unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
+    [System.SerializableAttribute()]
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Daily_Deli_E_Commerce.DailyDeliAPI.Product[] ProductsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Daily_Deli_E_Commerce.DailyDeliAPI.Product[] Products {
+            get {
+                return this.ProductsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
+                    this.ProductsField = value;
+                    this.RaisePropertyChanged("Products");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
                 }
             }
         }
@@ -2725,6 +2834,163 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CommentDTO", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
+    [System.SerializableAttribute()]
+    public partial class CommentDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> LikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReplyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comment {
+            get {
+                return this.CommentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentField, value) != true)) {
+                    this.CommentField = value;
+                    this.RaisePropertyChanged("Comment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Likes {
+            get {
+                return this.LikesField;
+            }
+            set {
+                if ((this.LikesField.Equals(value) != true)) {
+                    this.LikesField = value;
+                    this.RaisePropertyChanged("Likes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Reply {
+            get {
+                return this.ReplyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReplyField, value) != true)) {
+                    this.ReplyField = value;
+                    this.RaisePropertyChanged("Reply");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TransactionDTO", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
     [System.SerializableAttribute()]
     public partial class TransactionDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2912,6 +3178,131 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PromoCodeDTO", Namespace="http://schemas.datacontract.org/2004/07/DailyDeli_Service")]
+    [System.SerializableAttribute()]
+    public partial class PromoCodeDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DailyDeliAPI.IService_DailyDeli")]
     public interface IService_DailyDeli {
@@ -3006,6 +3397,12 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetUserByEmail", ReplyAction="http://tempuri.org/IService_DailyDeli/GetUserByEmailResponse")]
         System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.UserDTO> GetUserByEmailAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetCommentsByProductId", ReplyAction="http://tempuri.org/IService_DailyDeli/GetCommentsByProductIdResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[] GetCommentsByProductId(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetCommentsByProductId", ReplyAction="http://tempuri.org/IService_DailyDeli/GetCommentsByProductIdResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[]> GetCommentsByProductIdAsync(int productId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddProduct", ReplyAction="http://tempuri.org/IService_DailyDeli/AddProductResponse")]
         bool AddProduct(string name, string Description, decimal price, int stockQuantity, string Image, bool active, bool isCommon, int Category);
         
@@ -3083,6 +3480,84 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetTransactionsByUserId", ReplyAction="http://tempuri.org/IService_DailyDeli/GetTransactionsByUserIdResponse")]
         System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO[]> GetTransactionsByUserIdAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/getComments", ReplyAction="http://tempuri.org/IService_DailyDeli/getCommentsResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[] getComments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/getComments", ReplyAction="http://tempuri.org/IService_DailyDeli/getCommentsResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[]> getCommentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdateComment", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdateCommentResponse")]
+        bool UpdateComment(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdateComment", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdateCommentResponse")]
+        System.Threading.Tasks.Task<bool> UpdateCommentAsync(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/getUserID", ReplyAction="http://tempuri.org/IService_DailyDeli/getUserIDResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.UserDTO getUserID(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/getUserID", ReplyAction="http://tempuri.org/IService_DailyDeli/getUserIDResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.UserDTO> getUserIDAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddComment", ReplyAction="http://tempuri.org/IService_DailyDeli/AddCommentResponse")]
+        bool AddComment(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddComment", ReplyAction="http://tempuri.org/IService_DailyDeli/AddCommentResponse")]
+        System.Threading.Tasks.Task<bool> AddCommentAsync(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetTransactionByUserId", ReplyAction="http://tempuri.org/IService_DailyDeli/GetTransactionByUserIdResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO GetTransactionByUserId(int t_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetTransactionByUserId", ReplyAction="http://tempuri.org/IService_DailyDeli/GetTransactionByUserIdResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO> GetTransactionByUserIdAsync(int t_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdateTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdateTransactionResponse")]
+        bool UpdateTransaction(Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO trans);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdateTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdateTransactionResponse")]
+        System.Threading.Tasks.Task<bool> UpdateTransactionAsync(Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO trans);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/GetTransactionResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO GetTransaction(int trans_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/GetTransactionResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO> GetTransactionAsync(int trans_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetPromo", ReplyAction="http://tempuri.org/IService_DailyDeli/GetPromoResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO GetPromo(int promo_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetPromo", ReplyAction="http://tempuri.org/IService_DailyDeli/GetPromoResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO> GetPromoAsync(int promo_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdatePromo", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdatePromoResponse")]
+        bool UpdatePromo(Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO promo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/UpdatePromo", ReplyAction="http://tempuri.org/IService_DailyDeli/UpdatePromoResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePromoAsync(Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO promo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/DeleteTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/DeleteTransactionResponse")]
+        bool DeleteTransaction(int tran_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/DeleteTransaction", ReplyAction="http://tempuri.org/IService_DailyDeli/DeleteTransactionResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTransactionAsync(int tran_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddPromoCode", ReplyAction="http://tempuri.org/IService_DailyDeli/AddPromoCodeResponse")]
+        bool AddPromoCode(int userId, string code, string type, decimal value, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/AddPromoCode", ReplyAction="http://tempuri.org/IService_DailyDeli/AddPromoCodeResponse")]
+        System.Threading.Tasks.Task<bool> AddPromoCodeAsync(int userId, string code, string type, decimal value, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetActivePromoCodes", ReplyAction="http://tempuri.org/IService_DailyDeli/GetActivePromoCodesResponse")]
+        Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO[] GetActivePromoCodes(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/GetActivePromoCodes", ReplyAction="http://tempuri.org/IService_DailyDeli/GetActivePromoCodesResponse")]
+        System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO[]> GetActivePromoCodesAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/ApplyPromoCode", ReplyAction="http://tempuri.org/IService_DailyDeli/ApplyPromoCodeResponse")]
+        bool ApplyPromoCode(int userId, string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_DailyDeli/ApplyPromoCode", ReplyAction="http://tempuri.org/IService_DailyDeli/ApplyPromoCodeResponse")]
+        System.Threading.Tasks.Task<bool> ApplyPromoCodeAsync(int userId, string code);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3232,6 +3707,14 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
             return base.Channel.GetUserByEmailAsync(email);
         }
         
+        public Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[] GetCommentsByProductId(int productId) {
+            return base.Channel.GetCommentsByProductId(productId);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[]> GetCommentsByProductIdAsync(int productId) {
+            return base.Channel.GetCommentsByProductIdAsync(productId);
+        }
+        
         public bool AddProduct(string name, string Description, decimal price, int stockQuantity, string Image, bool active, bool isCommon, int Category) {
             return base.Channel.AddProduct(name, Description, price, stockQuantity, Image, active, isCommon, Category);
         }
@@ -3334,6 +3817,110 @@ namespace Daily_Deli_E_Commerce.DailyDeliAPI {
         
         public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO[]> GetTransactionsByUserIdAsync(int userId) {
             return base.Channel.GetTransactionsByUserIdAsync(userId);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[] getComments() {
+            return base.Channel.getComments();
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO[]> getCommentsAsync() {
+            return base.Channel.getCommentsAsync();
+        }
+        
+        public bool UpdateComment(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment) {
+            return base.Channel.UpdateComment(comment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateCommentAsync(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment) {
+            return base.Channel.UpdateCommentAsync(comment);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.UserDTO getUserID(int id) {
+            return base.Channel.getUserID(id);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.UserDTO> getUserIDAsync(int id) {
+            return base.Channel.getUserIDAsync(id);
+        }
+        
+        public bool AddComment(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment) {
+            return base.Channel.AddComment(comment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddCommentAsync(Daily_Deli_E_Commerce.DailyDeliAPI.CommentDTO comment) {
+            return base.Channel.AddCommentAsync(comment);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO GetTransactionByUserId(int t_id) {
+            return base.Channel.GetTransactionByUserId(t_id);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO> GetTransactionByUserIdAsync(int t_id) {
+            return base.Channel.GetTransactionByUserIdAsync(t_id);
+        }
+        
+        public bool UpdateTransaction(Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO trans) {
+            return base.Channel.UpdateTransaction(trans);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateTransactionAsync(Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO trans) {
+            return base.Channel.UpdateTransactionAsync(trans);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO GetTransaction(int trans_ID) {
+            return base.Channel.GetTransaction(trans_ID);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.TransactionDTO> GetTransactionAsync(int trans_ID) {
+            return base.Channel.GetTransactionAsync(trans_ID);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO GetPromo(int promo_ID) {
+            return base.Channel.GetPromo(promo_ID);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO> GetPromoAsync(int promo_ID) {
+            return base.Channel.GetPromoAsync(promo_ID);
+        }
+        
+        public bool UpdatePromo(Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO promo) {
+            return base.Channel.UpdatePromo(promo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePromoAsync(Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO promo) {
+            return base.Channel.UpdatePromoAsync(promo);
+        }
+        
+        public bool DeleteTransaction(int tran_id) {
+            return base.Channel.DeleteTransaction(tran_id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTransactionAsync(int tran_id) {
+            return base.Channel.DeleteTransactionAsync(tran_id);
+        }
+        
+        public bool AddPromoCode(int userId, string code, string type, decimal value, string status) {
+            return base.Channel.AddPromoCode(userId, code, type, value, status);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddPromoCodeAsync(int userId, string code, string type, decimal value, string status) {
+            return base.Channel.AddPromoCodeAsync(userId, code, type, value, status);
+        }
+        
+        public Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO[] GetActivePromoCodes(int userId) {
+            return base.Channel.GetActivePromoCodes(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Daily_Deli_E_Commerce.DailyDeliAPI.PromoCodeDTO[]> GetActivePromoCodesAsync(int userId) {
+            return base.Channel.GetActivePromoCodesAsync(userId);
+        }
+        
+        public bool ApplyPromoCode(int userId, string code) {
+            return base.Channel.ApplyPromoCode(userId, code);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ApplyPromoCodeAsync(int userId, string code) {
+            return base.Channel.ApplyPromoCodeAsync(userId, code);
         }
     }
 }

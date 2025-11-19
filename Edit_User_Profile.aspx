@@ -16,13 +16,13 @@
 
         <style>
             :root {
-                --bg: #f6f7fb;
+                --bg:#fff !important;
                 --card: #ffffff;
-                --text: #0f172a;
+                --text: #fff;
                 --muted: #6b7280;
                 --line: #eef0f5;
-                --primary: #FF8A00;
-                --primary-ghost: #e9f0ff;
+                --primary: #0077CC;
+                --primary-ghost: #0077CC;
                 --danger: #ef4444;
                 --success: #22c55e;
                 --radius: 14px;
@@ -36,7 +36,8 @@
 
             html,
             body {
-                height: 100%
+                height: 100%;
+
             }
 
             body {
@@ -81,7 +82,7 @@
                 place-items: center;
                 font-weight: 700;
                 color: #fff;
-                background: linear-gradient(135deg, #7c3aed, #5b8def);
+                background: #0077CC;
                 box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .25);
             }
 
@@ -271,7 +272,7 @@
             }
 
             .switch input:checked+.slider {
-                background: #bbf7d0
+                background: #0077CC
             }
 
             .switch input:checked+.slider:before {
@@ -300,8 +301,8 @@
             }
 
             .btn-secondary {
-                background: #edf2fe;
-                color: #274690;
+                background: #0077CC;
+                color: #fff;
                 border-radius: 12px;
                 padding: 12px 16px;
                 font-weight: 700;

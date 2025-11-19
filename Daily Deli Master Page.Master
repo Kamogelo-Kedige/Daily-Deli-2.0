@@ -8,11 +8,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1626dc2da5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/StyleSheet.css" />
-     <!-- Favicon created by justicon - Flaticon: https://www.flaticon.com/free-icons/groceries -->
+    <!-- Favicon created by justicon - Flaticon: https://www.flaticon.com/free-icons/groceries -->
     <link rel="icon" href="img/shopping-bag.png" type="image/x-icon">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
         <title></title>
+                <style type="text/css">
+            .subscribe-btn {
+                background: linear-gradient(135deg, #4a6cf7 0%, #6b8cff 100%);
+                color: #ffffff;
+                font-family: 'Poppins', Arial, sans-serif;
+                font-size: 18px; /* Slightly larger font */
+                font-weight: 600;
+                padding: 12px 24px; /* Larger padding for bigger size */
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+                display: inline-block;
+                text-align: center;
+                min-width: 120px; /* Ensures button isn't too small */
+            }
+
+            .subscribe-btn:hover {
+                background: linear-gradient(135deg, #6b8cff 0%, #4a6cf7 100%); /* Reverse gradient on hover */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px); /* Subtle lift effect */
+            }
+
+            .subscribe-btn:active {
+                transform: translateY(0); /* Reset lift on click */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Ensure responsiveness */
+            @media (max-width: 600px) {
+                .subscribe-btn {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    min-width: 100px;
+                }
+            }
+
+            /* Optional: Style the newsletter input for consistency */
+            .newsletter-input {
+                font-family: 'Poppins', Arial, sans-serif;
+                font-size: 16px;
+                padding: 12px;
+                border: 1px solid #e0e5f3;
+                border-radius: 8px;
+                width: 200px;
+                margin-right: 10px;
+            }
+
+            .newsletter-input:focus {
+                outline: none;
+                border-color: #4a6cf7;
+                box-shadow: 0 0 5px rgba(74, 108, 247, 0.5);
+            }
+        </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -38,7 +93,7 @@
                         <asp:HyperLink ID="shopAdminLink" runat="server" Visible="false" CssClass="nav-link" NavigateUrl="Admin.aspx">
                              Admin</asp:HyperLink></li>
 
-                    <li><a href="Edit_User_Profile.aspx" class="nav-link"><i class="fas fa-user"></i>Profile</a></li>
+                    <li><a href="EditUserProfile.aspx" class="nav-link"><i class="fas fa-user"></i>Profile</a></li>
                     <li>
                         <!-- Cart Button -->
                         <button id="cart-btn" class="cart-btn" type="button">
@@ -50,7 +105,7 @@
                         </button>
                     </li>
                     <% }
-                        else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx"))
+                        else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edituserprofile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproductcommentpage.aspx") )
                         { %>
                     <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
                     <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
@@ -60,11 +115,11 @@
 
 
                     <% }
-                     else if ( Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") ||  Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx"))
-                     { %>
-                        <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
-                        <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
-                        <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
+                        else if (Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("transactions.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("loyalty_discount.aspx")|| Page.AppRelativeVirtualPath.ToLower().Contains("edit_products.aspx")||Page.AppRelativeVirtualPath.ToLower().Contains("add_products.aspx")|| Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx")|| Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx"))
+                        { %>
+                    <li><a href="Logout.aspx" class="nav-link">Logout</a></li>
+                    <li><a href="Shop.aspx" class="nav-link">Shop</a></li>
+                    <li><a href="Blog_Post.aspx" class="nav-link">Blog</a></li>
                     <li>
                         <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="Admin.aspx">
                              Admin</asp:HyperLink></li>
@@ -102,14 +157,14 @@
                             { %>
                         <li><a href="Logout.aspx">Logout</a></li>
                         <li><a href="Blog_Post.aspx">Blog</a></li>
-                        <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i>Profile</a></li>
+                        <li><a href="EditUserProfile.aspx"><i class="fas fa-user"></i>Profile</a></li>
                         <% }
-                            else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("edit_user_profile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx"))
+                            else if (Page.AppRelativeVirtualPath.ToLower().Contains("chechout.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("aboutproduct.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("EditUserProfile.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("admin.aspx") || Page.AppRelativeVirtualPath.ToLower().Contains("blog_post.aspx"))
                             { %>
                         <li><a href="Logout.aspx">Logout</a></li>
                         <li><a href="Shop.aspx">Shop</a></li>
                         <li><a href="Blog_Post.aspx">Blog</a></li>
-                        <li><a href="Edit_User_Profile.aspx"><i class="fas fa-user"></i>Profile</a></li>
+                        <li><a href="EditUserProfile.aspx"><i class="fas fa-user"></i>Profile</a></li>
                         <% }
                             else
                             { %>
@@ -123,8 +178,9 @@
                 <div class="footer-newsletter">
                     <h3>Stay Updated</h3>
                     <div>
-                        <input type="email" name="email" placeholder="Your email address" />
-                        <button type="submit">Subscribe</button>
+                        <asp:TextBox ID="txtNewsletterEmail" runat="server" TextMode="Email" placeholder="Your email address" CssClass="newsletter-input" />
+                        <asp:Button ID="btnSubscribe" runat="server" Text="Subscribe" CssClass="subscribe-btn" OnClick="btnSubscribe_Click" style="background: linear-gradient(135deg, #4a6cf7 0%, #6b8cff 100%); color: #ffffff; font-family: 'Poppins', Arial, sans-serif; font-size: 18px; font-weight: 600; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); min-width: 120px;" />
+                        <p id="newsletterStatus" runat="server" style="color: #2d3748; margin-top: 10px;"></p>
                     </div>
                 </div>
 
@@ -134,7 +190,7 @@
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
                     <a id="instagram" href="https://www.instagram.com" target="_blank">
-                        <i class=" fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
                     <a id="twitter" href="https://www.twitter.com" target="_blank">
                         <i class="fa-brands fa-x-twitter"></i>

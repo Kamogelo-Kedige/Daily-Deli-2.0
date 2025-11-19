@@ -6,6 +6,7 @@
       <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PromoCodes" nillable="true" type="tns:ArrayOfPromoCode" />
       <xs:element minOccurs="0" name="Recipes" nillable="true" type="tns:ArrayOfRecipe" />
       <xs:element minOccurs="0" name="Transactions" nillable="true" type="tns:ArrayOfTransaction" />
       <xs:element minOccurs="0" name="UserCarts" nillable="true" type="tns:ArrayOfUserCart" />
@@ -33,12 +34,10 @@
   <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
   <xs:complexType name="Comment">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
-      <xs:element minOccurs="0" name="Category_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Comment1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Likes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumLikes" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
       <xs:element minOccurs="0" name="Product_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Reply" nillable="true" type="xs:string" />
@@ -47,21 +46,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Comment" nillable="true" type="tns:Comment" />
-  <xs:complexType name="Category">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfComment" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Category" nillable="true" type="tns:Category" />
-  <xs:complexType name="ArrayOfProduct">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
   <xs:complexType name="Product">
     <xs:sequence>
       <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
@@ -83,6 +67,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
   <xs:complexType name="ArrayOfProductDietCompatibility">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDietCompatibility" nillable="true" type="tns:ProductDietCompatibility" />
@@ -161,6 +159,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductNutrition" nillable="true" type="tns:ProductNutrition" />
+  <xs:complexType name="ArrayOfPromoCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PromoCode" nillable="true" type="tns:PromoCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPromoCode" nillable="true" type="tns:ArrayOfPromoCode" />
+  <xs:complexType name="PromoCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PromoCode" nillable="true" type="tns:PromoCode" />
   <xs:complexType name="ArrayOfTransaction">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
@@ -269,6 +285,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RecipeDTO" nillable="true" type="tns:RecipeDTO" />
+  <xs:complexType name="ArrayOfCommentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentDTO" nillable="true" type="tns:CommentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentDTO" nillable="true" type="tns:ArrayOfCommentDTO" />
+  <xs:complexType name="CommentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Likes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="Reply" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentDTO" nillable="true" type="tns:CommentDTO" />
   <xs:complexType name="ArrayOfTransactionDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
@@ -290,4 +325,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
+  <xs:complexType name="PromoCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PromoCodeDTO" nillable="true" type="tns:PromoCodeDTO" />
+  <xs:complexType name="ArrayOfPromoCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PromoCodeDTO" nillable="true" type="tns:PromoCodeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPromoCodeDTO" nillable="true" type="tns:ArrayOfPromoCodeDTO" />
 </xs:schema>

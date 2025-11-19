@@ -801,6 +801,27 @@
                 transform: translateY(-3px);
                 box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
             }
+
+            /* New styles for promo codes */
+            .promo-card {
+                background: var(--light-bg);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .promo-card button {
+                background: var(--primary);
+                color: var(--light);
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
         </style>
     </asp:Content>
 
@@ -865,6 +886,10 @@
             <div class="checkout-cart">
                 <h1>Your Order</h1>
                 <hr />
+                <!-- New section for active promo codes -->
+                <div id="active-promos" style="margin-bottom: 20px;">
+                    <!-- Dynamic promo cards will be added here via JS -->
+                </div>
                 <!-- Placeholder for dynamic cart items -->
                 <div id="dynamic-cart-items">
                     <div class="cart-item">
@@ -891,8 +916,8 @@
                     </div>
                 </div>
                 <div class="discount">
-                    <input type="text" placeholder="Discount Code" />
-                    <button>Apply</button>
+                    <asp:TextBox ID="txtDiscountCode" runat="server" placeholder="Discount Code"></asp:TextBox>
+                    <asp:Button ID="btnApplyDiscount" runat="server" Text="Apply" OnClick="btnApplyDiscount_Click" />
                 </div>
                 <div class="totals">
                     <p><span class="total-label">VAT (15%)</span><span class="total-amount">R29.57</span></p>
@@ -1155,5 +1180,14 @@
                     this.classList.add('active');
                 });
             });
+
+            // New JS for copying promo codes
+            function copyCode(code) {
+                navigator.clipboard.writeText(code).then(() => {
+                    alert('Promo code copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            }
         </script>
     </asp:Content>

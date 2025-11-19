@@ -47,5 +47,15 @@ namespace Daily_Deli_E_Commerce
             Response.Redirect("Edit_Products.aspx");
 
         }
+
+        protected void btnDiscounts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Loyalty_Discount.aspx");
+        }
+
+        protected void btnRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Transactions.aspx");
+        }
     }
 }

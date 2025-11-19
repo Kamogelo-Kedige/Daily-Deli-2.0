@@ -15,7 +15,7 @@
                   :root {
                 --header-bg: #f5f5f5;
                 --link-color: #333;
-                --link-hover: #0077cc;
+                --link-hover: #0077CC;
                 --brand-bg: #f5f5f5;
                 --brand-color: #333;
                 --accent-color: #0077cc;
@@ -30,14 +30,14 @@
                 --footer-text: #ddd;
                 --footer-link: #fff;
                 --footer-link-hover: #0077cc;
-                --button-hover: rgb(5, 151, 255);
+                --button-hover: #0077CC;
             }
 
             body {
                 margin: 0;
                 padding: 0;
                 font-family: "Poppins", "Inter", sans-serif !important;
-                background: #fafafa;
+                background: #fff !important;
                 color: var(--brand-color);
                 width: 100%;
                 scroll-behavior: smooth;
@@ -238,7 +238,7 @@
         }
 
         body {
-            background: #d9d9d9; /* light dull black */
+            background: #ffffff; /* light dull black */
             font-family: "Segoe UI", sans-serif;
         }
 
@@ -281,16 +281,16 @@
             }
 
         .card-title {
-            color: #f1f1f1;
+            color: #0077CC;
             font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .btn-orange {
-            background: linear-gradient(180deg, #ffb463, #ff8a00);
+            background: #0077CC;
             border: none;
-            color: #1a1a1d;
+            color: #0077CC;
             font-weight: 600;
             padding: 6px 0;
             border-radius: 8px;
@@ -382,11 +382,11 @@
         :root {
             /* theme */
             --bg: #f6f7fb;
-            --card: #fff;
-            --text: #0f172a;
+            --card: #0077CC;
+            --text: #0077CC;
             --muted: #64748b;
             --line: #eef0f5;
-            --primary: #FF8A00;
+            --primary: #0077CC;
             --primary-ghost: #FFE5C2;
             --radius: 14px;
             --shadow: 0 10px 25px rgba(2,6,23,.06);
@@ -434,13 +434,13 @@
             }
 
         .btn-primary {
-            background: var(--primary);
-            color: #fff;
+            background: #0077CC;
+            color: #0077CC;
             box-shadow: 0 6px 14px rgba(255,138,0,.45)
         }
 
         .btn-ghost {
-            background: #fff;
+            background: #0077CC;
             border: 1px solid var(--line);
             color: var(--text)
         }
@@ -472,13 +472,13 @@
             --accent: #9aa0a6;
             --accent-bg: #f5f7fb;
             background: var(--accent-bg);
-            border-color: color-mix(in srgb, var(--accent) 20%, #ffffff);
+            border-color: color-mix(in srgb, var(--accent) 20%, #0077CC);
         }
 
             .stat-card:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 18px 36px rgba(2,6,23,.10);
-                border-color: color-mix(in srgb, var(--accent) 35%, #ffffff);
+                border-color: color-mix(in srgb, var(--accent) 35%, #0077CC);
             }
 
         /* bigger card heading */
@@ -562,8 +562,8 @@
 
         /* subtle accent palettes (apply one class per card) */
         .accent-blue {
-            --accent: #3b82f6;
-            --accent-bg: #e8f1ff;
+            --accent: #0077CC;
+            --accent-bg: #99C9EB;
         }
 
         .accent-green {
@@ -602,15 +602,14 @@
             <div class="dash-head">
                 <div class="dash-title">Dashboard Summary</div>
                 <div class="dash-actions">
-                    <asp:Button ID="btnRefresh" runat="server" CssClass="btn btn-ghost" Text="Refresh" />
-                  
+                    
                 </div>
             </div>
 
             <div class="stats-grid">
 
                 <!-- Active Users -->
-                <div class="stat-card accent-green">
+                <div class="stat-card accent-blue">
                     <div class="stat-kicker"><span class="dot"></span>Active Users</div>
                     <div class="stat-value">
                         <asp:Label ID="lblActiveUsers" runat="server" Text="0" />
@@ -620,7 +619,7 @@
                 </div>
 
                 <!-- Inactive Users -->
-                <div class="stat-card accent-rose">
+                <div class="stat-card accent-blue">
                     <div class="stat-kicker"><span class="dot"></span>Inactive Users</div>
                     <div class="stat-value">
                         <asp:Label ID="lblInactiveUsers" runat="server" Text="0" />
@@ -640,7 +639,7 @@
                 </div>
 
                 <!-- Total Revenue -->
-                <div class="stat-card accent-amber">
+                <div class="stat-card accent-blue">
                     <div class="stat-kicker"><span class="dot"></span>Total Revenue</div>
                     <div class="stat-value">
                         R
@@ -651,7 +650,7 @@
                 </div>
 
                 <!-- Products In Catalog -->
-                <div class="stat-card accent-purple">
+                <div class="stat-card accent-blue">
                     <div class="stat-kicker"><span class="dot"></span>Total Products</div>
                     <div class="stat-value">
                         <asp:Label ID="lblProducts" runat="server" Text="0" />
@@ -661,7 +660,7 @@
                 </div>
 
                 <!-- Out of Stock -->
-                <div class="stat-card accent-teal">
+                <div class="stat-card accent-blue">
                     <div class="stat-kicker"><span class="dot"></span>Out of Stock</div>
                     <div class="stat-value">
                         <asp:Label ID="lblOOS" runat="server" Text="0" />
@@ -680,11 +679,9 @@
                     <div class="admin-avatar"><i class="bi bi-person-gear"></i></div>
                     <div class="admin-name">Administrator</div>
 
-                    <div class="admin-role">Name : </div>
+                    <div class="admin-role">Admin </div>
 
-                    <div class="admin-role">Surname : </div>
-
-                    <div class="admin-role">Gender : </div>
+                    <div class="admin-role">Male </div>
 
                     <div class="admin-name">Roles</div>
                     <ul class="admin-features">
@@ -696,9 +693,7 @@
                     </ul>
                     <br>
                     <br>
-                    <asp:Button ID="Button2" runat="server" Text="View Profile"
-                        CssClass="btn btn-lg w-100"
-                        Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;" OnClick="Button2_Click" />
+                  s
                 </div>
             </div>
 
@@ -723,7 +718,7 @@
 
                             <asp:Button ID="Button1" runat="server" Text="Open"
                                 CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;" OnClick="Button1_Click" />
+                                Style="background: linear-gradient(90deg, #0077CC, #0077CC); border: none; color: #fff; font-weight: 600; border-radius: 25px;" OnClick="Button1_Click" />
 
                         </div>
                     </div>
@@ -749,35 +744,8 @@
                             </br>
                             <asp:Button ID="btnProducts" runat="server" Text="Open"
                                 CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;"
+                                Style="background: linear-gradient(90deg, #0077CC, #0077CC); border: none; color: #fff; font-weight: 600; border-radius: 25px;"
                                 OnClick="btnProducts_Click" />
-
-                        </div>
-                    </div>
-
-                    <!-- Orders & Fulfilment Card -->
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow-sm text-center p-4"
-                            style="border-radius: 16px; max-width: 500px; margin: 0 auto;">
-
-                            <!-- Icon -->
-                            <div class="mb-3">
-                                <i class="bi bi-truck text-primary" style="font-size: 4rem;"></i>
-                            </div>
-
-                            <!-- Title -->
-                            <h5 class="fw-bold text-dark mb-2">Orders & Fulfilment</h5>
-
-                            <!-- Description -->
-                            <p class="text-muted mb-4">
-                                Manage customer orders, track fulfilment, and process returns.
-                            </p>
-                            </br>
-
-                            <!-- ASP Button -->
-                            <asp:Button ID="btnOrders" runat="server" Text="Open"
-                                CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;" />
 
                         </div>
                     </div>
@@ -802,7 +770,7 @@
                             <!-- ASP Button -->
                             <asp:Button ID="btnUsers" runat="server" Text="Open"
                                 CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;"
+                                Style="background: linear-gradient(90deg, #0077CC, #0077CC); border: none; color: #fff; font-weight: 600; border-radius: 25px;"
                                 OnClick="btnUser_Profile" />
 
                         </div>
@@ -819,17 +787,17 @@
                             </div>
 
                             <!-- Title -->
-                            <h5 class="fw-bold text-dark mb-2">Recipes & Meal Plans</h5>
+                            <h5 class="fw-bold text-dark mb-2">Transactions</h5>
 
                             <!-- Description -->
                             <p class="text-muted mb-4">
-                                Create quick recipes, organize weekly meal plans, and link ingredients.
+                                Manage the Transactions.
                             </p>
 
 
                             <asp:Button ID="btnRecipes" runat="server" Text="Open"
                                 CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;" />
+                                Style="background: linear-gradient(90deg, #0077CC, #0077CC); border: none; color: #fff; font-weight: 600; border-radius: 25px;" OnClick="btnRecipes_Click" />
 
                         </div>
                     </div>
@@ -850,7 +818,7 @@
                             
                             <asp:Button ID="btnDiscounts" runat="server" Text="Open"
                                 CssClass="btn btn-lg w-50"
-                                Style="background: linear-gradient(90deg, #ff9966, #ff5e62); border: none; color: #fff; font-weight: 600; border-radius: 25px;" />
+                                Style="background: linear-gradient(90deg, #0077CC, #0077CC); border: none; color: #fff; font-weight: 600; border-radius: 25px;" OnClick="btnDiscounts_Click" />
 
                         </div>
                     </div>

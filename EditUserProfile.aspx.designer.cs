@@ -11,106 +11,97 @@ namespace Daily_Deli_E_Commerce
 {
 
 
-    public partial class Admin
+    public partial class EditUserProfile
     {
 
         /// <summary>
-        /// lblActiveUsers control.
+        /// statusLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActiveUsers;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl statusLabel;
 
         /// <summary>
-        /// lblInactiveUsers control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInactiveUsers;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
 
         /// <summary>
-        /// lblTransactions control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTransactions;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
 
         /// <summary>
-        /// lblRevenue control.
+        /// surname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRevenue;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText surname;
 
         /// <summary>
-        /// lblProducts control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProducts;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
 
         /// <summary>
-        /// lblOOS control.
+        /// phoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOOS;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneNumber;
 
         /// <summary>
-        /// Button1 control.
+        /// addressLine1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText addressLine1;
 
         /// <summary>
-        /// btnProducts control.
+        /// city control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProducts;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText city;
 
         /// <summary>
-        /// btnUsers control.
+        /// postalCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUsers;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText postalCode;
 
         /// <summary>
-        /// btnRecipes control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRecipes;
-
-        /// <summary>
-        /// btnDiscounts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDiscounts;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

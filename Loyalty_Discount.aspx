@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Daily Deli Master Page.Master" AutoEventWireup="true"
-    CodeBehind="Edit_Products.aspx.cs" Inherits="Daily_Deli_E_Commerce.Edit_Products" %>
-
+    CodeBehind="Loyalty_Discount.aspx.cs" Inherits="Daily_Deli_E_Commerce.Loyalty_Discoumt" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Products</title>
@@ -34,6 +32,21 @@
                 --button-hover: rgb(5, 151, 255);
             }
 
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: "Poppins", "Inter", sans-serif !important;
+                background: #fafafa;
+                color: var(--brand-color);
+                width: 100%;
+                scroll-behavior: smooth;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
 
             header {
                 display: flex;
@@ -220,17 +233,141 @@
                 font-weight: 600;
                 font-size: .95rem;
                 transition: transform .04s ease, box-shadow .2s ease, background .2s ease;
-                background: #0077CC !important;
-                color: #fff;
             }
 
             .btn-edit {
-                background: #0077CC;
+                background: #FF8A00;
                 color: #fff;
                 box-shadow: 0 6px 14px rgba(91, 141, 239, .25);
             }
         </style>
+    </asp:Content>
 
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <div class="container py-4">
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                <h3 class="m-0">Promo Codes</h3>
+                <asp:Panel runat="server" CssClass="d-flex gap-2 w-100 w-sm-auto" DefaultButton="btnSearch">
+                    <asp:TextBox ID="txtSearch" runat="server" ClientIDMode="Static" CssClass="form-control"
+                        placeholder="Search Promo by ID" />
+                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-outline-secondary"
+                        OnClientClick="__doPostBack('<%= txtSearch.UniqueID %>','');" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnAdmin" runat="server" ClientIDMode="Static" CssClass="btn btn-edit"
+                        Text="Back to Home" OnClick="btnAdmin_Click" />
+                </asp:Panel>
+            </div>
+
+
+            <div class="row g-4">
+                <!-- LEFT: keep card and layout, swap dummy table for GridView -->
+                <div class="col-lg-7">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+
+                            <asp:SqlDataSource ID="dsPromo" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:DailyDeliDb %>"
+                                CancelSelectOnNullParameter="False"
+                                SelectCommand="SELECT [Code], [Type], [Value], [Status], [user_id] FROM [PromoCode]">
+                            </asp:SqlDataSource>
+
+
+                            <div class="table-responsive">
+                                <asp:GridView ID="gvPromoCode" runat="server" DataSourceID="dsPromo"
+                                    AutoGenerateColumns="False" AllowPaging="True" PageSize="20" AllowSorting="True"
+                                    CssClass="table table-striped align-middle">
+                                    <Columns>
+
+                                        <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code" />
+                                        <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                                        <asp:BoundField DataField="Value" HeaderText="Value" SortExpression="Value" />
+                                        <asp:BoundField DataField="Status" HeaderText="Status"
+                                            SortExpression="Status" />
+                                        <asp:BoundField DataField="user_id" HeaderText="user_id"
+                                            SortExpression="user_id" />
+
+                                    </Columns>
+
+                                </asp:GridView>
+
+                            </div>
+
+                            <!-- (Optional) count text kept for layout parity; now static since JS removed -->
+                            <div class="mt-2 small text-muted" id="tblCount"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: untouched editor card (no backend/JS wired) -->
+                <div class="col-lg-5">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="mb-3">Edit Promo</h5>
+
+                            <asp:HiddenField ID="pid" runat="server" ClientIDMode="Static" />
+
+                            <div class="mb-2">
+                                <asp:Label runat="server" AssociatedControlID="userid" CssClass="form-label">User ID
+                                </asp:Label>
+                                <asp:TextBox ID="userid" runat="server" ClientIDMode="Static" CssClass="form-control" />
+                                <div class="invalid-feedback">Name is required.</div>
+                            </div>
+
+                            <div class="mb-2">
+                                <asp:Label runat="server" AssociatedControlID="code" CssClass="form-label">Code
+                                </asp:Label>
+                                <asp:TextBox ID="code" runat="server" ClientIDMode="Static" CssClass="form-control"
+                                    TextMode="MultiLine" Rows="3" />
+                                <div class="invalid-feedback">Description is required.</div>
+                            </div>
+
+                            <div class="row g-2 mb-2">
+                                <div class="col-6">
+                                    <asp:Label runat="server" AssociatedControlID="type" CssClass="form-label">Type
+                                    </asp:Label>
+                                    <asp:TextBox ID="type" runat="server" ClientIDMode="Static"
+                                        CssClass="form-control" />
+                                    <div class="invalid-feedback">Price must be a valid number ≥ 0.</div>
+                                </div>
+                                <div class="col-6">
+                                    <asp:Label runat="server" AssociatedControlID="value" CssClass="form-label">Value
+                                    </asp:Label>
+                                    <asp:TextBox ID="value" runat="server" ClientIDMode="Static"
+                                        CssClass="form-control" />
+                                    <div class="invalid-feedback">Stock must be a whole number ≥ 0.</div>
+                                </div>
+                            </div>
+
+                            <div class="row g-2 mb-2">
+                                <div class="col-6">
+                                    <asp:Label runat="server" AssociatedControlID="status" CssClass="form-label">Status
+                                    </asp:Label>
+                                    <asp:TextBox ID="status" runat="server" ClientIDMode="Static"
+                                        CssClass="form-control" />
+                                    <div class="invalid-feedback">Unit is required.</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mb-3">
+                                <asp:Button ID="btnSave" runat="server" ClientIDMode="Static" CssClass="btn btn-success"
+                                    Text="Save" OnClientClick="return false;" OnClick="btnSave_Click" />
+                                <asp:Button ID="btnDelete" runat="server" ClientIDMode="Static"
+                                    CssClass="btn btn-success" Text="Delete" OnClick="btnDelete_Click" />
+                                <asp:Button ID="btnReset" runat="server" ClientIDMode="Static"
+                                    CssClass="btn btn-outline-secondary" Text="Reset" OnClick="btnReset_Click" />
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <asp:Image ID="imgPreview" runat="server" ClientIDMode="Static"
+                                    CssClass="rounded border d-none"
+                                    Style="width: 72px; height: 72px; object-fit: cover" AlternateText="" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <style>
             /* Compact, clean table look */
@@ -322,179 +459,6 @@
                 border: 1px solid var(--bs-border-color);
             }
         </style>
-    </asp:Content>
-    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="container py-4">
-            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
-                <h3 class="m-0">Products</h3>
-                <asp:Panel runat="server" CssClass="d-flex gap-2 w-100 w-sm-auto" DefaultButton="btnSearch">
-                    <asp:TextBox ID="txtSearch" runat="server" ClientIDMode="Static" CssClass="form-control"
-                        placeholder="Search products" />
-                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-edit"
-                        OnClientClick="__doPostBack('<%= txtSearch.UniqueID %>','');" OnClick="btnSearch_Click" />
-                    <asp:Button ID="btnAdmin" runat="server" ClientIDMode="Static" CssClass="btn btn-edit"
-                        Text="Back to Home" OnClick="btnAdmin_Click" />
-                </asp:Panel>
-            </div>
-
-
-            <div class="row g-4">
-                <!-- LEFT: keep card and layout, swap dummy table for GridView -->
-                <div class="col-lg-7">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body d-flex flex-column">
-
-                            <asp:SqlDataSource ID="dsProducts" runat="server"
-                                ConnectionString="<%$ ConnectionStrings:DailyDeliDb %>"
-                                CancelSelectOnNullParameter="False" SelectCommand="SELECT * FROM [Product]">
-                            </asp:SqlDataSource>
-
-
-                            <div class="table-responsive">
-                                <!-- Your GridView (styled like before) -->
-                                <asp:GridView ID="gvProducts" runat="server" DataSourceID="dsProducts"
-                                    AutoGenerateColumns="False" AllowPaging="True" PageSize="20" AllowSorting="True"
-                                    CssClass="table table-striped align-middle" DataKeyNames="Id">
-                                    <columns>
-                                        <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true"
-                                            SortExpression="Id" InsertVisible="False" />
-                                        <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price"
-                                            ItemStyle-HorizontalAlign="Right" />
-                                        <asp:BoundField DataField="stockQuantity" HeaderText="stockQuantity"
-                                            SortExpression="stockQuantity" />
-                                        <asp:BoundField DataField="unit" HeaderText="unit" SortExpression="unit" />
-
-                                        <asp:CheckBoxField DataField="isActive" HeaderText="isActive"
-                                            SortExpression="isActive" />
-                                        <asp:CheckBoxField DataField="isCommon" HeaderText="isCommon"
-                                            SortExpression="isCommon" />
-
-                                    </columns>
-                                </asp:GridView>
-                            </div>
-
-                            <!-- (Optional) count text kept for layout parity; now static since JS removed -->
-                            <div class="mt-2 small text-muted" id="tblCount"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT: untouched editor card (no backend/JS wired) -->
-                <div class="col-lg-5">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h5 class="mb-3">Edit Product</h5>
-
-                            <asp:HiddenField ID="pid" runat="server" ClientIDMode="Static" />
-
-                            <div class="mb-2">
-                                <asp:Label runat="server" AssociatedControlID="pname" CssClass="form-label">Name
-                                </asp:Label>
-                                <asp:TextBox ID="pname" runat="server" ClientIDMode="Static" CssClass="form-control" />
-                                <div class="invalid-feedback">Name is required.</div>
-                            </div>
-
-                            <div class="mb-2">
-                                <asp:Label runat="server" AssociatedControlID="pdesc" CssClass="form-label">Description
-                                </asp:Label>
-                                <asp:TextBox ID="pdesc" runat="server" ClientIDMode="Static" CssClass="form-control"
-                                    TextMode="MultiLine" Rows="3" />
-                                <div class="invalid-feedback">Description is required.</div>
-                            </div>
-
-                            <div class="row g-2 mb-2">
-                                <div class="col-6">
-                                    <asp:Label runat="server" AssociatedControlID="pprice" CssClass="form-label">Price
-                                    </asp:Label>
-                                    <asp:TextBox ID="pprice" runat="server" ClientIDMode="Static"
-                                        CssClass="form-control" />
-                                    <div class="invalid-feedback">Price must be a valid number ≥ 0.</div>
-                                </div>
-                                <div class="col-6">
-                                    <asp:Label runat="server" AssociatedControlID="pstock" CssClass="form-label">Stock
-                                        Quantity</asp:Label>
-                                    <asp:TextBox ID="pstock" runat="server" ClientIDMode="Static"
-                                        CssClass="form-control" />
-                                    <div class="invalid-feedback">Stock must be a whole number ≥ 0.</div>
-                                </div>
-                            </div>
-
-                            <div class="row g-2 mb-2">
-                                <div class="col-6">
-                                    <asp:Label runat="server" AssociatedControlID="punit" CssClass="form-label">Unit
-                                    </asp:Label>
-                                    <asp:TextBox ID="punit" runat="server" ClientIDMode="Static"
-                                        CssClass="form-control" />
-                                    <div class="invalid-feedback">Unit is required.</div>
-                                </div>
-                                <div class="col-6">
-                                    <asp:Label runat="server" AssociatedControlID="pcat" CssClass="form-label">Category
-                                    </asp:Label>
-                                    <asp:DropDownList ID="pcat" runat="server" ClientIDMode="Static"
-                                        CssClass="form-select">
-                                        <asp:ListItem Text="-- Select Category --" Value="0" />
-                                        <asp:ListItem Text="Vegetables" Value="1" />
-                                        <asp:ListItem Text="Fruits" Value="2" />
-                                        <asp:ListItem Text="Bakery" Value="3" />
-                                        <asp:ListItem Text="Dairy" Value="4" />
-                                        <asp:ListItem Text="Snacks" Value="5" />
-                                        <asp:ListItem Text="Beverages" Value="6" />
-                                        <asp:ListItem Text="Quick" Value="7" />
-                                    </asp:DropDownList>
-                                    <div class="invalid-feedback">Category is required.</div>
-                                </div>
-                            </div>
-
-                            <div class="mb-2">
-                                <asp:Label runat="server" AssociatedControlID="pimage" CssClass="form-label">Image
-                                    URL/File</asp:Label>
-                                <asp:TextBox ID="pimage" runat="server" ClientIDMode="Static" CssClass="form-control" />
-                            </div>
-
-                            <div class="mb-3">
-                                <asp:Label runat="server" CssClass="form-label">Upload Image</asp:Label> <br>
-                                <asp:FileUpload runat="server"></asp:FileUpload>
-                            </div>
-
-
-                            <div class="row g-2 mb-3 align-items-center">
-                                <div class="col-6 form-check">
-                                    <asp:CheckBox ID="pactive" runat="server" ClientIDMode="Static"
-                                        CssClass="form-check-input" />
-                                    <asp:Label runat="server" CssClass="form-check-label">Is Active</asp:Label>
-                                </div>
-                                <div class="col-6 form-check">
-                                    <asp:CheckBox ID="pcommon" runat="server" ClientIDMode="Static"
-                                        CssClass="form-check-input" />
-                                    <asp:Label runat="server" CssClass="form-check-label">Is Common</asp:Label>
-                                </div>
-                            </div>
-
-
-                            <div class="d-flex gap-2 mb-3">
-                                <asp:Button ID="btnSave" runat="server" ClientIDMode="Static" CssClass="btn btn-success"
-                                    Text="Save" OnClientClick="return false;" OnClick="btnSave_Click" />
-                                <asp:Button ID="btnDelete" runat="server" ClientIDMode="Static"
-                                    CssClass="btn btn-success" Text="Delete" OnClick="btnDelete_Click" />
-                                <asp:Button ID="btnReset" runat="server" ClientIDMode="Static" CssClass="btn btn-edit"
-                                    Text="Reset" OnClick="btnReset_Click" />
-                            </div>
-
-                            <div class="d-flex align-items-center gap-3">
-                                <asp:Image ID="imgPreview" runat="server" ClientIDMode="Static"
-                                    CssClass="rounded border d-none"
-                                    Style="width: 72px; height: 72px; object-fit: cover" AlternateText="" />
-                                <span id="imgHint" class="text-muted small">Add an image URL to preview.</span>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
 
         <script defer>
             document.addEventListener('DOMContentLoaded', () => {
@@ -581,7 +545,4 @@
                 }
             });
         </script>
-
-
-
     </asp:Content>

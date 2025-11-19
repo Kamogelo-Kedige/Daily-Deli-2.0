@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .admin-wrap {
-            background: #e0e0e0; /* light grey background */
+            background:#fff !important;
             padding: 32px 0;
             display: flex;
             justify-content: center; /* center horizontally */
@@ -53,13 +53,13 @@
         font-weight: 600;
         font-size: .95rem;
         transition: transform .04s ease, box-shadow .2s ease, background .2s ease;
-          background: #0077cc;
+          background: #0077CC;
         color: #fff;
     }
 
     .btn-edit {
         font-weight:500;
-        background: #0077cc;
+        background: #0077CC;
         color: #fff;
         box-shadow: 0 6px 14px rgba(91,141,239,.25);
     }
@@ -80,7 +80,7 @@
             }
 
         .site-btn {
-            background: #0077cc;
+            background: #0077CC;
             border: none;
             color: #fff;
             border-radius: 12px;
@@ -89,7 +89,7 @@
         }
 
             .site-btn.secondary {
-                background: #888;
+                background: #0077CC;
             }
 
         .grid-2 {
@@ -117,7 +117,7 @@
         }
 
         .text-white {
-            color: #000 !important;
+            color: #0077CC !important;
         }
     </style>
 </asp:Content>

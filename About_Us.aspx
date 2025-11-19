@@ -13,14 +13,60 @@
                 scroll-behavior: smooth;
             }
 
+            /* Glassmorphism variables and helpers */
+            :root {
+                --glass-bg: rgba(255, 255, 255, 0.55);
+                --glass-border: rgba(255, 255, 255, 0.6);
+                --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+                --brand-accent: #0077cc;
+            }
+
+            .glass-card {
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.32));
+                border: 1px solid var(--glass-border);
+                box-shadow: var(--glass-shadow);
+                border-radius: 14px;
+                padding: 1.25rem;
+                backdrop-filter: blur(8px) saturate(120%);
+                -webkit-backdrop-filter: blur(8px) saturate(120%);
+                transition: transform .18s ease, box-shadow .18s ease;
+            }
+
+            .glass-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 18px 46px rgba(31, 38, 135, 0.12);
+            }
+
+            .glass-hero-panel {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.28));
+                border-radius: 12px;
+                padding: 2rem;
+                display: inline-block;
+                color: #fff;
+                backdrop-filter: blur(6px) brightness(90%);
+            }
+
+            .hero-cta {
+                display: inline-block;
+                margin-top: 1rem;
+                background: linear-gradient(90deg, var(--brand-accent), #005fa3);
+                color: #fff;
+                padding: .6rem 1rem;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: 600;
+                box-shadow: 0 8px 20px rgba(0, 119, 204, 0.18);
+            }
+
             /* About Us specific styles */
             .about-hero {
-                background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1170&auto=format&fit=crop') center/cover no-repeat;
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1698694454652-d1d24033f2e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMzfHx8ZW58MHx8fHx8') center/cover no-repeat;
                 padding: 120px 0 80px;
                 text-align: center;
                 color: white;
                 position: relative;
             }
+
 
             .about-hero h2 {
                 font-size: 3rem;
@@ -287,9 +333,68 @@
         <!-- Hero Section -->
         <section class="about-hero">
             <div class="container">
-                <h2>About Daily Deli</h2>
-                <p>We're revolutionizing the way local communities connect with fresh produce and artisanal goods. Our
-                    mission is to bring the best of local markets directly to your doorstep.</p>
+                <div class="glass-hero-panel">
+                    <h2>About Daily Deli</h2>
+                    <p>Daily Deli is redefining the way communities access fresh groceries and ready-to-eat meals. Our
+                        platform combines convenience, nutrition, and sustainability by delivering locally sourced
+                        produce,
+                        artisanal foods, and curated meal kits directly to your doorstep. We cater to every lifestyle,
+                        offering options for vegan, vegetarian, halal, and other dietary preferences, while integrating
+                        nutritional information and allergen alerts to make informed choices effortless.</p>
+                    <a href="Shop.aspx" class="hero-cta">Browse Fresh Picks</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Mission & Values Section -->
+        <section class="mission-section">
+            <div class="container">
+                <h2 class="section-title">Our Mission & <span class="gradient-text">Values</span></h2>
+                <div class="mission-container">
+                    <div class="mission-text glass-card">
+                        <h3>Our Mission</h3>
+                        <p>At Daily Deli, our mission is to make healthy, convenient, and sustainably sourced food
+                            accessible to everyone. We aim to empower customers with tools like personalized dietary
+                            filters, dynamic meal planning, and quick recipe suggestions, while supporting local farmers
+                            and producers who share our commitment to quality and sustainability.</p>
+                        <p>Since our inception, we have grown from a niche startup to a trusted platform serving
+                            thousands of customers, providing not just groceries, but inspiration and guidance for
+                            healthier, more convenient living.</p>
+                    </div>
+
+                    <div class="values-text glass-card">
+                        <h3>Our Values</h3>
+                        <ul class="values-list">
+                            <li><i class="fas fa-check-circle"></i>
+                                <div><strong>Quality First:</strong> Every product is carefully selected, with detailed
+                                    nutritional info and allergen guidance, ensuring our customers receive the best for
+                                    their health and taste.</div>
+                            </li>
+                            <li><i class="fas fa-check-circle"></i>
+                                <div><strong>Community & Inclusion:</strong> We foster a community through diet-specific
+                                    blogs, tips, and interactive meal planning, creating a space where every lifestyle
+                                    and dietary choice is respected and supported.</div>
+                            </li>
+                            <li><i class="fas fa-check-circle"></i>
+                                <div><strong>Sustainability:</strong> From local sourcing to eco-friendly packaging and
+                                    delivery methods, we minimize environmental impact while promoting responsible
+                                    consumption.</div>
+                            </li>
+                            <li><i class="fas fa-check-circle"></i>
+                                <div><strong>Innovation:</strong> By linking products directly to recipes, suggesting
+                                    weekly meal plans, and integrating loyalty rewards, we continuously enhance the
+                                    shopping experience and drive meaningful engagement.</div>
+                            </li>
+                            <li><i class="fas fa-check-circle"></i>
+                                <div><strong>Customer-Centric Convenience:</strong> Our platform simplifies grocery
+                                    shopping with tailored recommendations, quick-add recipes, and meal planning to save
+                                    time and enrich daily nutrition.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -299,7 +404,7 @@
             <div class="team-grid">
                 <!-- Team Member 1 -->
                 <div class="team-member hover-lift">
-                    <img src="img/Kamo.jfif" alt="Kamo Picture">
+                    <img src="img/Kamo.jpeg" alt="Kamo Picture">
                     <div class="member-info">
                         <h4>Kamogelo Kedige</h4>
                         <p>Group Leader</p>
@@ -335,51 +440,11 @@
             </div>
         </section>
 
-        <!-- Mission & Values Section -->
-        <section class="mission-section">
-            <div class="container">
-                <h2 class="section-title">Our Mission & <span class="gradient-text">Values</span></h2>
-                <div class="mission-container">
-                    <div class="mission-text">
-                        <h3>Our Mission</h3>
-                        <p>At Daily Deli, we believe in supporting local economies while providing our customers with
-                            the freshest, highest quality products. We've created a seamless platform that connects
-                            local producers directly with consumers.</p>
-                        <p>Founded in 2020, we've grown from a small startup to serving thousands of customers across
-                            the region, all while maintaining our commitment to sustainability and community support.
-                        </p>
-                    </div>
-
-                    <div class="values-text">
-                        <h3>Our Values</h3>
-                        <ul class="values-list">
-                            <li><i class="fas fa-check-circle"></i>
-                                <div><strong>Quality First:</strong> We carefully vet all our producers to ensure only
-                                    the best products reach you.</div>
-                            </li>
-                            <li><i class="fas fa-check-circle"></i>
-                                <div><strong>Community Focus:</strong> We're committed to strengthening local economies
-                                    and supporting small businesses.</div>
-                            </li>
-                            <li><i class="fas fa-check-circle"></i>
-                                <div><strong>Sustainability:</strong> We prioritize eco-friendly packaging and delivery
-                                    methods to minimize our environmental impact.</div>
-                            </li>
-                            <li><i class="fas fa-check-circle"></i>
-                                <div><strong>Innovation:</strong> We continuously improve our platform to enhance the
-                                    experience for both customers and producers.</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contact Section -->
-        <section class="contact-section">
+        <section class="contact-section" style="display: flex; align-items: center;">
             <div class="container">
                 <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-                <div class="contact-grid">
+                <div class="contact-grid glass-card">
                     <div class="contact-info">
                         <h3>Contact Information</h3>
                         <div class="contact-details">

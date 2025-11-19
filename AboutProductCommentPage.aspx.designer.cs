@@ -11,52 +11,34 @@ namespace Daily_Deli_E_Commerce
 {
 
 
-    public partial class Blog_Post
+    public partial class AboutProductCommentPage
     {
 
         /// <summary>
-        /// ButtonAdd control.
+        /// litProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ButtonAdd;
+        protected global::System.Web.UI.WebControls.Literal litProductName;
 
         /// <summary>
-        /// txtComment control.
+        /// rptComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComment;
+        protected global::System.Web.UI.WebControls.Repeater rptComments;
 
         /// <summary>
-        /// BtnPost control.
+        /// litNoComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPost;
-
-        /// <summary>
-        /// ddlProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProducts;
-
-        /// <summary>
-        /// phProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phProducts;
+        protected global::System.Web.UI.WebControls.Literal litNoComments;
     }
 }

@@ -98,6 +98,12 @@
   <wsdl:message name="IService_DailyDeli_GetUserByEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetCommentsByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetCommentsByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsByProductIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_DailyDeli_AddProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProduct" />
   </wsdl:message>
@@ -176,6 +182,84 @@
   <wsdl:message name="IService_DailyDeli_GetTransactionsByUserId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTransactionsByUserIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getComments" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateComment" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserID" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_getUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddComment" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetTransactionByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetTransactionByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdateTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetPromo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromo" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetPromo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdatePromo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePromo" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_UpdatePromo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePromoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_DeleteTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_DeleteTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_AddPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPromoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetActivePromoCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivePromoCodes" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_GetActivePromoCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivePromoCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ApplyPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IService_DailyDeli_ApplyPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyPromoCodeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService_DailyDeli">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/Register" message="tns:IService_DailyDeli_Register_InputMessage" />
@@ -237,6 +321,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserByEmail" message="tns:IService_DailyDeli_GetUserByEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetUserByEmailResponse" message="tns:IService_DailyDeli_GetUserByEmail_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCommentsByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetCommentsByProductId" message="tns:IService_DailyDeli_GetCommentsByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetCommentsByProductIdResponse" message="tns:IService_DailyDeli_GetCommentsByProductId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/AddProduct" message="tns:IService_DailyDeli_AddProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/AddProductResponse" message="tns:IService_DailyDeli_AddProduct_OutputMessage" />
@@ -288,6 +376,58 @@
     <wsdl:operation name="GetTransactionsByUserId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransactionsByUserId" message="tns:IService_DailyDeli_GetTransactionsByUserId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransactionsByUserIdResponse" message="tns:IService_DailyDeli_GetTransactionsByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getComments" message="tns:IService_DailyDeli_getComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getCommentsResponse" message="tns:IService_DailyDeli_getComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateComment" message="tns:IService_DailyDeli_UpdateComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateCommentResponse" message="tns:IService_DailyDeli_UpdateComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/getUserID" message="tns:IService_DailyDeli_getUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/getUserIDResponse" message="tns:IService_DailyDeli_getUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/AddComment" message="tns:IService_DailyDeli_AddComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/AddCommentResponse" message="tns:IService_DailyDeli_AddComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransactionByUserId" message="tns:IService_DailyDeli_GetTransactionByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransactionByUserIdResponse" message="tns:IService_DailyDeli_GetTransactionByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateTransaction" message="tns:IService_DailyDeli_UpdateTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdateTransactionResponse" message="tns:IService_DailyDeli_UpdateTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransaction" message="tns:IService_DailyDeli_GetTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetTransactionResponse" message="tns:IService_DailyDeli_GetTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetPromo" message="tns:IService_DailyDeli_GetPromo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetPromoResponse" message="tns:IService_DailyDeli_GetPromo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePromo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdatePromo" message="tns:IService_DailyDeli_UpdatePromo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/UpdatePromoResponse" message="tns:IService_DailyDeli_UpdatePromo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/DeleteTransaction" message="tns:IService_DailyDeli_DeleteTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/DeleteTransactionResponse" message="tns:IService_DailyDeli_DeleteTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPromoCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/AddPromoCode" message="tns:IService_DailyDeli_AddPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/AddPromoCodeResponse" message="tns:IService_DailyDeli_AddPromoCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivePromoCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/GetActivePromoCodes" message="tns:IService_DailyDeli_GetActivePromoCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/GetActivePromoCodesResponse" message="tns:IService_DailyDeli_GetActivePromoCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyPromoCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_DailyDeli/ApplyPromoCode" message="tns:IService_DailyDeli_ApplyPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_DailyDeli/ApplyPromoCodeResponse" message="tns:IService_DailyDeli_ApplyPromoCode_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService_DailyDeli" type="tns:IService_DailyDeli">
@@ -427,6 +567,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCommentsByProductId">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetCommentsByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/AddProduct" style="document" />
       <wsdl:input>
@@ -537,6 +686,123 @@
     </wsdl:operation>
     <wsdl:operation name="GetTransactionsByUserId">
       <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetTransactionsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getComments">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/UpdateComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserID">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/getUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/AddComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionByUserId">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetTransactionByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/UpdateTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromo">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetPromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePromo">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/UpdatePromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransaction">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/DeleteTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPromoCode">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/AddPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivePromoCodes">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/GetActivePromoCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyPromoCode">
+      <soap:operation soapAction="http://tempuri.org/IService_DailyDeli/ApplyPromoCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

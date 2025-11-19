@@ -224,6 +224,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCommentsByProductId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentsByProductIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetCommentsByProductIdResult" nillable="true" type="q8:ArrayOfCommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddProduct">
     <xs:complexType>
       <xs:sequence>
@@ -255,14 +269,14 @@
   <xs:element name="getUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getUserResult" nillable="true" type="q8:UserDTO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getUserResult" nillable="true" type="q9:UserDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateUserInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="user" nillable="true" type="q9:UserDTO" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="user" nillable="true" type="q10:UserDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -338,7 +352,7 @@
   <xs:element name="UpdateProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q10:ProductDTO" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q11:ProductDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -352,7 +366,7 @@
   <xs:element name="DeleteProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q11:ProductDTO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="product" nillable="true" type="q12:ProductDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -397,7 +411,192 @@
   <xs:element name="GetTransactionsByUserIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetTransactionsByUserIdResult" nillable="true" type="q12:ArrayOfTransactionDTO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetTransactionsByUserIdResult" nillable="true" type="q13:ArrayOfTransactionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getComments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCommentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getCommentsResult" nillable="true" type="q14:ArrayOfCommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="comment" nillable="true" type="q15:CommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCommentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="getUserIDResult" nillable="true" type="q16:UserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="comment" nillable="true" type="q17:CommentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCommentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="t_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetTransactionByUserIdResult" nillable="true" type="q18:TransactionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="trans" nillable="true" type="q19:TransactionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTransactionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="trans_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetTransactionResult" nillable="true" type="q20:TransactionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="promo_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetPromoResult" nillable="true" type="q21:PromoCodeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="promo" nillable="true" type="q22:PromoCodeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePromoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tran_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTransactionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPromoCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" type="xs:decimal" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPromoCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPromoCodeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivePromoCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivePromoCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DailyDeli_Service" minOccurs="0" name="GetActivePromoCodesResult" nillable="true" type="q23:ArrayOfPromoCodeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyPromoCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyPromoCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplyPromoCodeResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
